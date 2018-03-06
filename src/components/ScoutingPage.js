@@ -9,11 +9,7 @@ import * as allActions from '../actions/settingsActions';
 
 // Components
 import ScoutingForm from './ScoutingForm';
-
-// TODO: More comments
-
-
-
+import ScoutingHeader from './ScoutingHeader';
 
 
 function getMatch(matches, matchNumber) {
@@ -22,36 +18,15 @@ function getMatch(matches, matchNumber) {
 	});
 }
 
-function UserPromptElement(props) {
-	return (
-		<tr>
-			<td>{props.user.name}</td>
-			<td>{props.team}</td>
-		</tr>
-	);
-}
-
-function UserPrompt(props) {
-	console.log(props);
-	return (
-		<table>
-			<tbody>
-				<UserPromptElement user={props.users[0]} team={props.alliances.blue.teams[0].substring(3)} />
-				<UserPromptElement user={props.users[1]} team={props.alliances.blue.teams[1].substring(3)} />
-				<UserPromptElement user={props.users[2]} team={props.alliances.blue.teams[2].substring(3)} />
-				<UserPromptElement user={props.users[3]} team={props.alliances.red.teams[0].substring(3)} />
-				<UserPromptElement user={props.users[4]} team={props.alliances.red.teams[1].substring(3)} />
-				<UserPromptElement user={props.users[5]} team={props.alliances.red.teams[2].substring(3)} />
-			</tbody>
-		</table>
-	);
-}
-
 class ScoutingPage extends React.Component {
 	componentWillMount() {
 		// TODO; Get regional from DB
 		this.props.allActions.fetchSettings();
 		this.props.tbaActions.fetchMatchData('2018mxmo');
+	}
+
+	submit(values) {
+		console.log(values);
 	}
 
 	render() {
@@ -73,8 +48,8 @@ class ScoutingPage extends React.Component {
 			return (
 				<div className='matchList'>
 					<h1>Match {this.props.settings.matchNumber}</h1>
-					<UserPrompt users={this.props.settings.users} alliances={match.alliances} />
-					<ScoutingForm />
+					<ScoutingHeader users={this.props.settings.users} alliances={match.alliances} />
+					<ScoutingForm onSubmit={this.submit} />
 				</div>
 			);
 		};
