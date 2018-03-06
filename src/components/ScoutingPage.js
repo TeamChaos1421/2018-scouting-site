@@ -6,6 +6,7 @@ import {bindActionCreators} from 'redux';
 // Actions
 import * as tbaActions from '../actions/regionalActionsTBA';
 import * as allActions from '../actions/settingsActions';
+import {submitScoutingData} from '../actions/scoutingActions';
 
 // Components
 import ScoutingForm from './ScoutingForm';
@@ -25,8 +26,8 @@ class ScoutingPage extends React.Component {
 		this.props.tbaActions.fetchMatchData('2018mxmo');
 	}
 
-	submit(values) {
-		console.log(values);
+	submit(values, dispatch) {
+		dispatch(submitScoutingData(values));
 	}
 
 	render() {

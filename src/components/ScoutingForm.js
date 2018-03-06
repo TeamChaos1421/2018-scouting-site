@@ -40,7 +40,7 @@ let ScoutingForm = (props) => {
 };
 
 ScoutingForm = reduxForm({
-	form: 'scouting'
+	form: 'scoutingForm'
 })(ScoutingForm);
 
 export default ScoutingForm;

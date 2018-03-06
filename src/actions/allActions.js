@@ -14,3 +14,8 @@ export const TBA_RECEIVE_MATCH_DATA = 'TBA_RECEIVE_MATCH_DATA';
 // Admin Page Actions
 
 // Scouting Page Actions
+export const SUBMIT_SCOUTING_DATA = 'SUBMIT_SCOUTING_DATA';
+export const SUBMITTED_SCOUTING_DATA = 'SUBMITTED_SCOUTING_DATA';
+
+// Not technically an action...
+export const AUTH_TOKEN = 'Y2hhb3MyMDE4c2NvdXRpbmc6Y2hhb3MyMDE4c2NvdXRpbmc=';
