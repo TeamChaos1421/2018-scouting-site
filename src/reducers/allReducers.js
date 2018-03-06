@@ -1,5 +1,6 @@
 // Library imports
 import {combineReducers} from 'redux';
+import {reducer as formReducer} from 'redux-form';
 
 // Reducers
 import teamList from './teamListReducer';
@@ -11,6 +12,7 @@ const rootReducer = combineReducers({
 	teamList,
 	matchData,
 	settings,
+	form: formReducer
 });
 
 export default rootReducer;
