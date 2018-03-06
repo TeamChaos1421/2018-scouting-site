@@ -106,6 +106,9 @@ class ScoutingPage extends React.Component {
 						How many cubes scored on switch during autonomous? <input name='autoSwitchScore' value={this.autoSwitchScore} onChange={this.handleChange} /><br/>
 
 						<h3>Teleop</h3>
+						<input name='teleopScaleAttempt' type='checkbox' checked={this.state.telopScaleAttempt} onChange={this.handleChange} /> Attempts to place cube on scale<br/>
+						<input name='teleopSwitchAttempt' type='checkbox' checked={this.state.teleopSwitchAttempt} onChange={this.handleChange} /> Attempts to place cube on switch<br/>
+						<br/>
 						How many cubes scored on scale during teleop? <input name='teleopScaleScore' type='number' value={this.teleopScaleScore} onChange={this.handleChange} /><br/>
 						How many cubes scored on switch during teleop? <input name='teleopSwitchScore' type='number' value={this.teleopSwitchScore} onChange={this.handleChange} /><br/>
 
