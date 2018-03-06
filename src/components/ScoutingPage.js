@@ -15,7 +15,7 @@ import * as allActions from '../actions/settingsActions';
 
 function getMatch(matches, matchNumber) {
 	return matches.find(function(match) {
-		return (match.comp_level === 'qm' && match.match_number == matchNumber)
+		return (match.comp_level === 'qm' && match.match_number === matchNumber)
 	});
 }
 
