@@ -55,7 +55,13 @@ class ScoutingPage extends React.Component {
 	}
 
 	render() {
-		if(!this.props.matchData || !this.props.settings) {
+		if(!this.props.settings) {
+			return (
+				<div>
+					Loading settings...
+				</div>
+			);
+		} else if(!this.props.matchData) {
 			return (
 				<div>
 					Loading match list...
@@ -63,7 +69,6 @@ class ScoutingPage extends React.Component {
 			);
 		} else {
 			var match = getMatch(this.props.matchData, this.props.settings.matchNumber);
-			console.log(match);
 
 			return (
 				<div className='matchList'>

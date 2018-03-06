@@ -2,9 +2,9 @@
 import React from 'react';
 import {Field, reduxForm} from 'redux-form';
 
-function ScoutingForm(props) {
+let ScoutingForm = (props) => {
 	return (
-		<form onSubmit={props.onSubmit}>
+		<form onSubmit={props.handleSubmit}>
 			<h3>Match Info</h3>
 			Username: <Field name='username' component='input' type='text' /><br/>
 			Match Number: <Field name='matchNumber' component='input' type='text' /><br/>
