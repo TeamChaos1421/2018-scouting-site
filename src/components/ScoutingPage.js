@@ -19,13 +19,29 @@ function getMatch(matches, matchNumber) {
 	});
 }
 
-function UserPrompt(props) {
+function UserPromptElement(props) {
 	return (
 		<tr>
 			<td>{props.user.name}</td>
 			<td>{props.team}</td>
 		</tr>
-	)
+	);
+}
+
+function UserPrompt(props) {
+	console.log(props);
+	return (
+		<table>
+			<tbody>
+				<UserPromptElement user={props.users[0]} team={props.alliances.blue.teams[0].substring(3)} />
+				<UserPromptElement user={props.users[1]} team={props.alliances.blue.teams[1].substring(3)} />
+				<UserPromptElement user={props.users[2]} team={props.alliances.blue.teams[2].substring(3)} />
+				<UserPromptElement user={props.users[3]} team={props.alliances.red.teams[0].substring(3)} />
+				<UserPromptElement user={props.users[4]} team={props.alliances.red.teams[1].substring(3)} />
+				<UserPromptElement user={props.users[5]} team={props.alliances.red.teams[2].substring(3)} />
+			</tbody>
+		</table>
+	);
 }
 
 class ScoutingPage extends React.Component {
@@ -50,16 +66,7 @@ class ScoutingPage extends React.Component {
 				<div className='matchList'>
 					<h1>Match {this.props.settings.matchNumber}</h1>
 
-					<table>
-						<tbody>
-							<UserPrompt user={this.props.settings.users[0]} team={match.alliances.blue.teams[0].substring(3)} />
-							<UserPrompt user={this.props.settings.users[1]} team={match.alliances.blue.teams[1].substring(3)} />
-							<UserPrompt user={this.props.settings.users[2]} team={match.alliances.blue.teams[2].substring(3)} />
-							<UserPrompt user={this.props.settings.users[3]} team={match.alliances.red.teams[0].substring(3)} />
-							<UserPrompt user={this.props.settings.users[4]} team={match.alliances.red.teams[1].substring(3)} />
-							<UserPrompt user={this.props.settings.users[5]} team={match.alliances.red.teams[2].substring(3)} />
-						</tbody>
-					</table>
+					<UserPrompt users={this.props.settings.users} alliances={match.alliances} />
 
 					<form>
 						<h3>Match Info</h3>
