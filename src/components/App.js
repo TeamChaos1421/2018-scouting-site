@@ -11,6 +11,11 @@ import MatchList from './MatchList';
 import AdminPage from './AdminPage';
 import ScoutingPage from './ScoutingPage';
 
+let divStyle = {
+	'padding-left': '15px',
+	'padding-right': '15px',
+}
+	
 // The main layout for the application
 function App(props) {
 	return (
@@ -37,11 +42,13 @@ function App(props) {
 				</Nav>
 			</Navbar>
 			
-			<Route exact path='/' component={ScoutingPage} />
-			<Route path='/teams' component={TeamList} />
-			<Route path='/team/*' component={TeamPage} />
-			<Route path='/matches' component={MatchList} />
-			<Route path='/administration' component={AdminPage} />
+			<div style={divStyle}>
+				<Route exact path='/' component={ScoutingPage} />
+				<Route path='/teams' component={TeamList} />
+				<Route path='/team/*' component={TeamPage} />
+				<Route path='/matches' component={MatchList} />
+				<Route path='/administration' component={AdminPage} />
+			</div>
 		</div>
 	);
 }

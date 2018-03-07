@@ -48,7 +48,7 @@ function Scale(props) {
 		</FormGroup>
 	)
 }
-	
+
 let ScoutingForm = (props) => {
 	return (
 		<form onSubmit={props.handleSubmit}>

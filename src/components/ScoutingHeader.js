@@ -8,28 +8,32 @@ function ScoutingHeader(props) {
 	let blueTeams = props.alliances.blue.team_keys.map(teamNumber => teamNumber.substring(3));
 
 	return (
-		<Table bordered condensed style={{width: 'auto'}}>
-			<tbody>
-				<tr>
-					<td>{users[0]}</td>
-					<td className='danger'>{redTeams[0]}</td>
-					<td className='info'>{blueTeams[0]}</td>
-					<td>{users[1]}</td>
-				</tr>
-				<tr>
-					<td>{users[1]}</td>
-					<td className='danger'>{redTeams[1]}</td>
-					<td className='info'>{blueTeams[1]}</td>
-					<td>{users[3]}</td>
-				</tr>
-				<tr>
-					<td>{users[2]}</td>
-					<td className='danger'>{redTeams[2]}</td>
-					<td className='info'>{blueTeams[2]}</td>
-					<td>{users[5]}</td>
-				</tr>
-			</tbody>
-		</Table>
+		<div style={{width: '100%', 'font-size': '20px'}}>
+			<center>
+				<Table bordered condensed style={{width: 'auto'}}>
+					<tbody>
+						<tr>
+							<td>{users[0]}</td>
+							<td className='danger'>{redTeams[0]}</td>
+							<td className='info'>{blueTeams[0]}</td>
+							<td>{users[1]}</td>
+						</tr>
+						<tr>
+							<td>{users[1]}</td>
+							<td className='danger'>{redTeams[1]}</td>
+							<td className='info'>{blueTeams[1]}</td>
+							<td>{users[3]}</td>
+						</tr>
+						<tr>
+							<td>{users[2]}</td>
+							<td className='danger'>{redTeams[2]}</td>
+							<td className='info'>{blueTeams[2]}</td>
+							<td>{users[5]}</td>
+						</tr>
+					</tbody>
+				</Table>
+			</center>
+		</div>
 	);
 }
 

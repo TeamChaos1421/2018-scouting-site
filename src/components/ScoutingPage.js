@@ -48,8 +48,10 @@ class ScoutingPage extends React.Component {
 
 			return (
 				<div className='matchList'>
-					<h1>Match {this.props.settings.matchNumber}</h1>
-					<ScoutingHeader users={this.props.settings.users} alliances={match.alliances} />
+					<div style={{'text-align': 'center'}}>
+						<h1>Match {this.props.settings.matchNumber}</h1>
+						<ScoutingHeader style={{'text-align': 'center'}} users={this.props.settings.users} alliances={match.alliances} />
+					</div>
 					<ScoutingForm onSubmit={this.submit} />
 				</div>
 			);
