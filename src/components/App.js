@@ -1,6 +1,8 @@
 // Library imports
 import React from 'react';
 import {Route, Link} from 'react-router-dom';
+import {Navbar, Nav, NavItem} from 'react-bootstrap';
+import {LinkContainer, IndexLinkContainer} from 'react-router-bootstrap';
 
 // Pages
 import Home from './Home';
@@ -11,29 +13,38 @@ import AdminPage from './AdminPage';
 import ScoutingPage from './ScoutingPage';
 
 // The main layout for the application
-class App extends React.Component {
-	render() {
-		return (
-			<div>
-				<ul>
-					<li><Link to='/'>Home</Link></li>
-					<li><Link to='/teams'>Teams</Link></li>
-					<li><Link to='/matches'>Matches</Link></li>
-					<li><Link to='/scouting'>Scouting</Link></li>
-					<li><Link to='/administration'>Administration</Link></li>
-				</ul>
-
-				<hr/>
-
-				<Route exact path='/' component={Home} />
-				<Route path='/teams' component={TeamList} />
-				<Route path='/team/*' component={TeamPage} />
-				<Route path='/matches' component={MatchList} />
-				<Route path='/scouting' component={ScoutingPage} />
-				<Route path='/administration' component={AdminPage} />
-			</div>
-		);
-	}
+function App(props) {
+	return (
+		<div>
+			<Navbar inverse>
+				<Navbar.Header>
+					<Navbar.Brand>
+						<a href='/'>Chaos Scouting</a>
+					</Navbar.Brand>
+				</Navbar.Header>
+				<Nav>
+					<IndexLinkContainer to='/'>
+						<NavItem eventKey={2}>Scout</NavItem>
+					</IndexLinkContainer>
+					<LinkContainer to='/teams'>
+						<NavItem eventKey={2}>Teams</NavItem>
+					</LinkContainer>
+					<LinkContainer to='/matches'>
+						<NavItem eventKey={2}>Matches</NavItem>
+					</LinkContainer>
+					<LinkContainer to='/administration'>
+						<NavItem eventKey={2}>Administration</NavItem>
+					</LinkContainer>
+				</Nav>
+			</Navbar>
+			
+			<Route exact path='/' component={ScoutingPage} />
+			<Route path='/teams' component={TeamList} />
+			<Route path='/team/*' component={TeamPage} />
+			<Route path='/matches' component={MatchList} />
+			<Route path='/administration' component={AdminPage} />
+		</div>
+	);
 }
 
 export default App;
