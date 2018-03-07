@@ -3,65 +3,50 @@ import React from 'react';
 import {Field, reduxForm} from 'redux-form';
 import {FormGroup, FormControl, ControlLabel, Checkbox, Radio, Button, ToggleButton, ToggleButtonGroup} from 'react-bootstrap';
 
+// The reason for the next 3 functions is described here:
+// https://github.com/erikras/redux-form/issues/1397
+// Why it is mapped to props.input is anyone's guess.
 function ReduxFormControl({input, meta, ...props}) {
 	return <FormControl {...props} {...input} />;
 }
 
-function ReduxCheckbox({input, meta, ...props}) {
-	return <Checkbox {...props} {...input} />;
-}
-
-function ReduxRadio({input, meta, ...props}) {
-	return <Radio {...props} {...input} />;
-}
-
-function ReduxToggleButtonGroup({input, meta, ...props}) {
-	return <ToggleButtonGroup {...props} {...input} />
-}
-
-function ReduxToggleButton({input, meta, ...props}) {
-	return <ToggleButton {...props} {...input} />
-}
-
-class YesNoQuestion extends React.Component {
-	render() {
-		const { column, input, ...props } = this.props;
-		return (
-			<FormGroup>
-				<ControlLabel>{props.label}</ControlLabel>
-				<br/>
-				<ToggleButtonGroup name={props.name}>
-					<Field component={ReduxToggleButton} value={true}>Yes</Field>
-					<Field component={ReduxToggleButton} value={false}>No</Field>
+function YesNoQuestion(props) {
+	return (
+		<FormGroup>
+			<ControlLabel>{props.label}</ControlLabel>
+			<br/>
+			<Field name={props.name} component={(props) => (
+				<ToggleButtonGroup name={props.input.name} onChange={props.input.onChange} type='radio' value={props.input.value}>
+					<ToggleButton value={true}>Yes</ToggleButton>
+					<ToggleButton value={false}>No</ToggleButton>
 				</ToggleButtonGroup>
-			</FormGroup>
-		);
-	}
+			)} />
+		</FormGroup>
+	)
 }
 
-class Scale extends React.Component {
-	render() {
-		const { column, input, ...props } = this.props;
-		return (
-			<FormGroup>
-				<ControlLabel>{props.label}</ControlLabel>
-				<br/>
-				<ToggleButtonGroup name={props.name}>
-					<Field component={ReduxToggleButton} value={0}>0</Field>
-					<Field component={ReduxToggleButton} value={1}>1</Field>
-					<Field component={ReduxToggleButton} value={2}>2</Field>
-					<Field component={ReduxToggleButton} value={3}>3</Field>
-					<Field component={ReduxToggleButton} value={4}>4</Field>
-					<Field component={ReduxToggleButton} value={5}>5</Field>
-					<Field component={ReduxToggleButton} value={6}>6</Field>
-					<Field component={ReduxToggleButton} value={7}>7</Field>
-					<Field component={ReduxToggleButton} value={8}>8</Field>
-					<Field component={ReduxToggleButton} value={9}>9</Field>
-					<Field component={ReduxToggleButton} value={10}>10+</Field>
+function Scale(props) {
+	return (
+		<FormGroup>
+			<ControlLabel>{props.label}</ControlLabel>
+			<br/>
+			<Field name={props.name} component={(props) => (
+				<ToggleButtonGroup name={props.input.name} onChange={props.input.onChange} type='radio' value={props.input.value}>
+					<ToggleButton value={0}>0</ToggleButton>
+					<ToggleButton value={1}>1</ToggleButton>
+					<ToggleButton value={2}>2</ToggleButton>
+					<ToggleButton value={3}>3</ToggleButton>
+					<ToggleButton value={4}>4</ToggleButton>
+					<ToggleButton value={5}>5</ToggleButton>
+					<ToggleButton value={6}>6</ToggleButton>
+					<ToggleButton value={7}>7</ToggleButton>
+					<ToggleButton value={8}>8</ToggleButton>
+					<ToggleButton value={9}>9</ToggleButton>
+					<ToggleButton value={10}>10+</ToggleButton>
 				</ToggleButtonGroup>
-			</FormGroup>
-		);
-	}
+			)} />
+		</FormGroup>
+	)
 }
 
 // cubes in exchange
