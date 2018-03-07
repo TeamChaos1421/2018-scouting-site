@@ -1,5 +1,6 @@
 // Library imports
-import React from 'react'
+import React from 'react';
+import {Table} from 'react-bootstrap';
 
 function UserPromptElement(props) {
 	return (
@@ -11,17 +12,33 @@ function UserPromptElement(props) {
 }
 
 function ScoutingHeader(props) {
+	let users = props.users.map(user => user.name);
+	let redTeams = props.alliances.red.teams.map(teamNumber => teamNumber.substring(3));
+	let blueTeams = props.alliances.blue.teams.map(teamNumber => teamNumber.substring(3));
+
 	return (
-		<table>
+		<Table bordered condensed style={{width: 'auto'}}>
 			<tbody>
-				<UserPromptElement user={props.users[0]} team={props.alliances.blue.teams[0].substring(3)} />
-				<UserPromptElement user={props.users[1]} team={props.alliances.blue.teams[1].substring(3)} />
-				<UserPromptElement user={props.users[2]} team={props.alliances.blue.teams[2].substring(3)} />
-				<UserPromptElement user={props.users[3]} team={props.alliances.red.teams[0].substring(3)} />
-				<UserPromptElement user={props.users[4]} team={props.alliances.red.teams[1].substring(3)} />
-				<UserPromptElement user={props.users[5]} team={props.alliances.red.teams[2].substring(3)} />
+				<tr>
+					<td>{users[0]}</td>
+					<td class='danger'>{redTeams[0]}</td>
+					<td class='info'>{blueTeams[0]}</td>
+					<td>{users[1]}</td>
+				</tr>
+				<tr>
+					<td>{users[1]}</td>
+					<td class='danger'>{redTeams[1]}</td>
+					<td class='info'>{blueTeams[1]}</td>
+					<td>{users[3]}</td>
+				</tr>
+				<tr>
+					<td>{users[2]}</td>
+					<td class='danger'>{redTeams[2]}</td>
+					<td class='info'>{blueTeams[2]}</td>
+					<td>{users[5]}</td>
+				</tr>
 			</tbody>
-		</table>
+		</Table>
 	);
 }
 
