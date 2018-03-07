@@ -19,6 +19,53 @@ function ReduxToggleButtonGroup({input, meta, ...props}) {
 	return <ToggleButtonGroup {...props} {...input} />
 }
 
+function ReduxToggleButton({input, meta, ...props}) {
+	return <ToggleButton {...props} {...input} />
+}
+
+class YesNoQuestion extends React.Component {
+	render() {
+		const { column, input, ...props } = this.props;
+		return (
+			<FormGroup>
+				<ControlLabel>{props.label}</ControlLabel>
+				<br/>
+				<ToggleButtonGroup name={props.name}>
+					<Field component={ReduxToggleButton} value={true}>Yes</Field>
+					<Field component={ReduxToggleButton} value={false}>No</Field>
+				</ToggleButtonGroup>
+			</FormGroup>
+		);
+	}
+}
+
+class Scale extends React.Component {
+	render() {
+		const { column, input, ...props } = this.props;
+		return (
+			<FormGroup>
+				<ControlLabel>{props.label}</ControlLabel>
+				<br/>
+				<ToggleButtonGroup name={props.name}>
+					<Field component={ReduxToggleButton} value={0}>0</Field>
+					<Field component={ReduxToggleButton} value={1}>1</Field>
+					<Field component={ReduxToggleButton} value={2}>2</Field>
+					<Field component={ReduxToggleButton} value={3}>3</Field>
+					<Field component={ReduxToggleButton} value={4}>4</Field>
+					<Field component={ReduxToggleButton} value={5}>5</Field>
+					<Field component={ReduxToggleButton} value={6}>6</Field>
+					<Field component={ReduxToggleButton} value={7}>7</Field>
+					<Field component={ReduxToggleButton} value={8}>8</Field>
+					<Field component={ReduxToggleButton} value={9}>9</Field>
+					<Field component={ReduxToggleButton} value={10}>10+</Field>
+				</ToggleButtonGroup>
+			</FormGroup>
+		);
+	}
+}
+
+// cubes in exchange
+
 let ScoutingForm = (props) => {
 	return (
 		<form onSubmit={props.handleSubmit}>
@@ -41,147 +88,36 @@ let ScoutingForm = (props) => {
 
 			<h3>Autonomous</h3>
 
-			<FormGroup>
-				<ControlLabel>Moves During Autonomous</ControlLabel>
-				<br/>
-				<Field component={ReduxToggleButtonGroup} name='autoMoves' type='radio'>
-					<ToggleButton value='1'>Yes</ToggleButton>
-					<ToggleButton value='0'>No</ToggleButton>
-				</Field>
-			</FormGroup>
+			<YesNoQuestion label='Moves During Autonomous' name='autoMoves' />
+			<YesNoQuestion label='Crosses auto-line' name='autoCrosses' />
+			<YesNoQuestion label='Attempts to place a cube on the scale' name='autoScaleAttempt' />
+			<YesNoQuestion label='Attempts to place a cube on the switch' name='autoSwitchAttempt' />
+			<YesNoQuestion label='Attempts to place a cube in exchange' name='autoExchangeAttempt' />
 
-			<FormGroup>
-				<ControlLabel>Crosses auto-line</ControlLabel>
-				<br/>
-				<Field component={ReduxToggleButtonGroup} name='autoCrosses' type='radio'>
-					<ToggleButton value='1'>Yes</ToggleButton>
-					<ToggleButton value='0'>No</ToggleButton>
-				</Field>
-			</FormGroup>
-
-			<FormGroup>
-				<ControlLabel><em>Attempts</em> to place a cube on the scale</ControlLabel>
-				<br/>
-				<Field component={ReduxToggleButtonGroup} name='autoScaleAttempt' type='radio'>
-					<ToggleButton value='1'>Yes</ToggleButton>
-					<ToggleButton value='0'>No</ToggleButton>
-				</Field>
-			</FormGroup>
-
-			<FormGroup>
-				<ControlLabel><em>Attempts</em> to place a cube on the switch</ControlLabel>
-				<br/>
-				<Field component={ReduxToggleButtonGroup} name='autoSwitchAttempt' type='radio'>
-					<ToggleButton value='1'>Yes</ToggleButton>
-					<ToggleButton value='0'>No</ToggleButton>
-				</Field>
-			</FormGroup>
-				
-			<FormGroup>
-				<ControlLabel>Number of cubes <em>scored</em> on scale during autonomous</ControlLabel>
-				<br/>
-				<Field component={ReduxToggleButtonGroup} name='autoScaleScore' type='radio'>
-					<ToggleButton value='0'>0</ToggleButton>
-					<ToggleButton value='1'>1</ToggleButton>
-					<ToggleButton value='2'>2</ToggleButton>
-					<ToggleButton value='3'>3</ToggleButton>
-					<ToggleButton value='4'>4</ToggleButton>
-					<ToggleButton value='5'>5+</ToggleButton>
-				</Field>
-			</FormGroup>
-
-			<FormGroup>
-				<ControlLabel>Number of cubes <em>scored</em> on switch during autonomous</ControlLabel>
-				<br/>
-				<Field component={ReduxToggleButtonGroup} name='autoSwitchScore' type='radio'>
-					<ToggleButton value='0'>0</ToggleButton>
-					<ToggleButton value='1'>1</ToggleButton>
-					<ToggleButton value='2'>2</ToggleButton>
-					<ToggleButton value='3'>3</ToggleButton>
-					<ToggleButton value='4'>4</ToggleButton>
-					<ToggleButton value='5'>5+</ToggleButton>
-				</Field>
-			</FormGroup>
+			<Scale label='Number of cubes scored on scale during autonomous' name='autoScaleScore' />
+			<Scale label='Number of cubes scored on switch during autonomous' name='autoSwitchScore' />
+			<Scale label='Number of cubes placed in exchange during autonomous' name='autoExchange' />
 
 			<hr/>
 
 			<h3>Teleop</h3>
 
-			<FormGroup>
-				<ControlLabel>Moves During Teleop</ControlLabel>
-				<br/>
-				<Field component={ReduxToggleButtonGroup} name='teleopMoves' type='radio'>
-					<ToggleButton value='1'>Yes</ToggleButton>
-					<ToggleButton value='0'>No</ToggleButton>
-				</Field>
-			</FormGroup>
+			<YesNoQuestion label='Moves during teleop' name='teleopMoves' />
+			<YesNoQuestion label='Attempts to place a cube on the scale' name='telopScaleAttempt' />
+			<YesNoQuestion label='Attempts to place a cube on the switch' name='telopSwitchAttempt' />
+			<YesNoQuestion label='Attempts to place a cube in exchange' name='telopExchangeAttempt' />
 
-			<FormGroup>
-				<ControlLabel><em>Attempts</em> to place a cube on the scale</ControlLabel>
-				<br/>
-				<Field component={ReduxToggleButtonGroup} name='teleopScaleAttempt' type='radio'>
-					<ToggleButton value='1'>Yes</ToggleButton>
-					<ToggleButton value='0'>No</ToggleButton>
-				</Field>
-			</FormGroup>
-
-			<FormGroup>
-				<ControlLabel><em>Attempts</em> to place a cube on the switch</ControlLabel>
-				<br/>
-				<Field component={ReduxToggleButtonGroup} name='teleopSwitchAttempt' type='radio'>
-					<ToggleButton value='1'>Yes</ToggleButton>
-					<ToggleButton value='0'>No</ToggleButton>
-				</Field>
-			</FormGroup>
-				
-			<FormGroup>
-				<ControlLabel>Number of cubes <em>scored</em> on scale during teleop</ControlLabel>
-				<br/>
-				<Field component={ReduxToggleButtonGroup} name='teleopScaleScore' type='radio'>
-					<ToggleButton value='0'>0</ToggleButton>
-					<ToggleButton value='1'>1</ToggleButton>
-					<ToggleButton value='2'>2</ToggleButton>
-					<ToggleButton value='3'>3</ToggleButton>
-					<ToggleButton value='4'>4</ToggleButton>
-					<ToggleButton value='5'>5+</ToggleButton>
-				</Field>
-			</FormGroup>
-
-			<FormGroup>
-				<ControlLabel>Number of cubes <em>scored</em> on switch during teleop</ControlLabel>
-				<br/>
-				<Field component={ReduxToggleButtonGroup} name='teleopSwitchScore' type='radio'>
-					<ToggleButton value='0'>0</ToggleButton>
-					<ToggleButton value='1'>1</ToggleButton>
-					<ToggleButton value='2'>2</ToggleButton>
-					<ToggleButton value='3'>3</ToggleButton>
-					<ToggleButton value='4'>4</ToggleButton>
-					<ToggleButton value='5'>5+</ToggleButton>
-				</Field>
-			</FormGroup>
-
+			<Scale label='Number of cubes scored on scale during teleop' name='teleopScaleScore' />
+			<Scale label='Number of cubes scored on switch during teleop' name='teleopSwitchScore' />
+			<Scale label='Number of cubes placed in exchange during teleop' name='teleopExchange' />
+			
 			<hr/>
 
 			<h3>Endgame</h3>
 
-			<FormGroup>
-				<ControlLabel><em>Attempts</em> to climb</ControlLabel>
-				<br/>
-				<Field component={ReduxToggleButtonGroup} name='climbs' type='radio'>
-					<ToggleButton value='1'>Yes</ToggleButton>
-					<ToggleButton value='0'>No</ToggleButton>
-				</Field>
-			</FormGroup>
-
-			<FormGroup>
-				<ControlLabel><em>Successfully</em> climbs</ControlLabel>
-				<br/>
-				<Field component={ReduxToggleButtonGroup} name='climbs' type='radio'>
-					<ToggleButton value='1'>Yes</ToggleButton>
-					<ToggleButton value='0'>No</ToggleButton>
-				</Field>
-			</FormGroup>
-
+			<YesNoQuestion label='Attempts to climb' name='attemptsClimb' />
+			<YesNoQuestion label='Successfully climbs' name='climbs' />
+				
 			<hr/>
 
 			<h3>Notes</h3>
