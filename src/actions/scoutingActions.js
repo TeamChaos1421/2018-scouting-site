@@ -17,9 +17,7 @@ export function submitScoutingData(data) {
 				'Authorization': 'Basic ' + DB_AUTH_TOKEN,
 				'Content-Type': 'application/json',
 			},
-			body: JSON.stringify({
-				data: data
-			}),
+			body: JSON.stringify(data),
 		})
 		.then(response => 
 			response.json().then(data => ({

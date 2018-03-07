@@ -48,25 +48,23 @@ function Scale(props) {
 		</FormGroup>
 	)
 }
-
-// cubes in exchange
-
+	
 let ScoutingForm = (props) => {
 	return (
 		<form onSubmit={props.handleSubmit}>
 			<FormGroup>
 				<ControlLabel>Username</ControlLabel>
-				<Field component={ReduxFormControl} name='username' type='text'/>
+				<Field component={ReduxFormControl} name='username' type='text' autocomplete='off' />
 			</FormGroup>
 
 			<FormGroup>
 				<ControlLabel>Match Number</ControlLabel>
-				<Field component={ReduxFormControl} name='matchNumber' type='text'/>
+				<Field component={ReduxFormControl} name='matchNumber' type='text' autocomplete='off' />
 			</FormGroup>
 
 			<FormGroup>
 				<ControlLabel>Team Number</ControlLabel>
-				<Field component={ReduxFormControl} name='teamNumber' type='text'/>
+				<Field component={ReduxFormControl} name='teamNumber' type='text' autocomplete='off' />
 			</FormGroup>
 
 			<hr/>
