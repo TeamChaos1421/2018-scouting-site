@@ -7,6 +7,7 @@ import Home from './Home';
 import TeamList from './TeamList';
 import TeamPage from './TeamPage';
 import MatchList from './MatchList';
+import AdminPage from './AdminPage';
 import ScoutingPage from './ScoutingPage';
 
 // The main layout for the application
@@ -19,6 +20,7 @@ class App extends React.Component {
 					<li><Link to='/teams'>Teams</Link></li>
 					<li><Link to='/matches'>Matches</Link></li>
 					<li><Link to='/scouting'>Scouting</Link></li>
+					<li><Link to='/administration'>Administration</Link></li>
 				</ul>
 
 				<hr/>
@@ -28,6 +30,7 @@ class App extends React.Component {
 				<Route path='/team/*' component={TeamPage} />
 				<Route path='/matches' component={MatchList} />
 				<Route path='/scouting' component={ScoutingPage} />
+				<Route path='/administration' component={AdminPage} />
 			</div>
 		);
 	}
