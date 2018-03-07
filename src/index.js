@@ -4,6 +4,9 @@ import ReactDOM from 'react-dom';
 import {Provider} from 'react-redux';
 import {BrowserRouter} from 'react-router-dom';
 
+// Bootstrap Stuff
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 // Configuration stuff
 import configureStore from './configureStore';
 
