@@ -1,12 +1,22 @@
 // Library imports
 import React from 'react';
 import {Field, reduxForm} from 'redux-form';
+import {FormGroup, FormControl, ControlLabel} from 'react-bootstrap';
+
+function ReduxFormControl({input, meta, ...props}) {
+	return <FormControl {...props} {...input} />;
+}
 
 let ScoutingForm = (props) => {
 	return (
 		<form onSubmit={props.handleSubmit}>
 			<h3>Match Info</h3>
-			Username: <Field name='username' component='input' type='text' /><br/>
+
+			<FormGroup>
+				<ControlLabel>Username</ControlLabel>
+				<Field component={ReduxFormControl} name='username' type='text'/>
+			</FormGroup>
+				
 			Match Number: <Field name='matchNumber' component='input' type='text' /><br/>
 			Team Number: <Field name='teamNumber' component='input' type='text' /><br/>
 

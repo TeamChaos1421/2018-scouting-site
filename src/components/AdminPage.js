@@ -30,7 +30,7 @@ class AdminPage extends React.Component {
 					Current Match: {this.props.settings.matchNumber}<br/>
 				</div>
 			);
-		};
+		}
 	}
 }
 

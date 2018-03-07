@@ -4,7 +4,7 @@ import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 
 // Actions
-import * as tbaActions from '../actions/regionalActionsTBA';
+import {fetchMatchData} from '../actions/regionalActionsTBA';
 
 // TODO: More comments
 
@@ -14,7 +14,7 @@ import * as tbaActions from '../actions/regionalActionsTBA';
 
 function MatchPreview(props) {
 	return (
-		<tr>
+		<tr key={props.match_number}>
 			<td><a href={'/match/' + props.match_number}>{props.match_number}</a></td>
 		</tr>
 	);
@@ -22,7 +22,7 @@ function MatchPreview(props) {
 
 class MatchList extends React.Component {
 	componentWillMount() {
-		this.props.tbaActions.fetchMatchData('2018mxmo');
+		this.props.fetchMatchData('2018mxmo');
 	}
 
 	render() {
@@ -50,7 +50,7 @@ class MatchList extends React.Component {
 					</table>
 				</div>
 			);
-		};
+		}
 	}
 }
 
@@ -62,7 +62,7 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
 	return {
-		tbaActions: bindActionCreators(tbaActions, dispatch)
+		fetchMatchData: bindActionCreators(fetchMatchData, dispatch)
 	};
 }
 

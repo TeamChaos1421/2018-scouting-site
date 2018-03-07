@@ -4,7 +4,7 @@ import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 
 // Actions
-import * as tbaActions from '../actions/teamActionsTBA';
+import {fetchTeamList} from '../actions/teamActionsTBA';
 
 // TODO: More comments
 
@@ -14,7 +14,7 @@ import * as tbaActions from '../actions/teamActionsTBA';
 
 function TeamPreview(props) {
 	return (
-		<tr>
+		<tr key={props.team_number}>
 			<td><a href={'/team/' + props.team_number}>{props.team_number}</a></td>
 			<td>{props.nickname}</td>
 		</tr>
@@ -23,7 +23,7 @@ function TeamPreview(props) {
 
 class TeamList extends React.Component {
 	componentWillMount() {
-		this.props.tbaActions.fetchTeamList('2018mxmo');
+		this.props.fetchTeamList('2018mxmo');
 	}
 
 	render() {
@@ -47,7 +47,7 @@ class TeamList extends React.Component {
 					</table>
 				</div>
 			);
-		};
+		}
 	}
 }
 
@@ -59,7 +59,7 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
 	return {
-		tbaActions: bindActionCreators(tbaActions, dispatch)
+		fetchTeamList: bindActionCreators(fetchTeamList, dispatch)
 	};
 }
 

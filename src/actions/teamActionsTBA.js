@@ -1,19 +1,19 @@
-import * as allActions from './allActions';
+import {TBA_AUTH_TOKEN_V3, TBA_RECEIVE_TEAM_LIST} from './allActions';
 
 export function receiveTeamList(data) {
 	return {
-		type: allActions.TBA_RECEIVE_TEAM_LIST,
+		type: TBA_RECEIVE_TEAM_LIST,
 		data: data,
 	};
 }
 
 export function fetchTeamList(regional) {
-	let url = 'http://www.thebluealliance.com/api/v2/event/' + regional + '/teams';
+	let url = 'http://www.thebluealliance.com/api/v3/event/' + regional + '/teams';
 
 	return (dispatch) => {
 		fetch(url, {
 			headers: {
-				'X-TBA-APP-Id': 'frc1421:scouting-site:v3',
+				'x-tba-auth-key': TBA_AUTH_TOKEN_V3,
 			}
 		})
 		.then(response =>

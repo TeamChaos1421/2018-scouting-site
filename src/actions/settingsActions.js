@@ -1,8 +1,8 @@
-import * as allActions from './allActions';
+import {DB_RECEIVE_SETTINGS} from './allActions';
 
 export function receiveSettings(data) {
 	return {
-		type: allActions.DB_RECEIVE_SETTINGS,
+		type: DB_RECEIVE_SETTINGS,
 		data: data,
 	}
 }

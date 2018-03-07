@@ -1,11 +1,10 @@
 // Library imports
 import React from 'react';
-import {Route, Link} from 'react-router-dom';
+import {Route} from 'react-router-dom';
 import {Navbar, Nav, NavItem} from 'react-bootstrap';
 import {LinkContainer, IndexLinkContainer} from 'react-router-bootstrap';
 
 // Pages
-import Home from './Home';
 import TeamList from './TeamList';
 import TeamPage from './TeamPage';
 import MatchList from './MatchList';

@@ -4,8 +4,8 @@ import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 
 // Actions
-import * as tbaActions from '../actions/regionalActionsTBA';
-import * as allActions from '../actions/settingsActions';
+import {fetchSettings} from '../actions/settingsActions';
+import {fetchMatchData} from '../actions/regionalActionsTBA';
 import {submitScoutingData} from '../actions/scoutingActions';
 
 // Components
@@ -22,8 +22,8 @@ function getMatch(matches, matchNumber) {
 class ScoutingPage extends React.Component {
 	componentWillMount() {
 		// TODO; Get regional from DB
-		this.props.allActions.fetchSettings();
-		this.props.tbaActions.fetchMatchData('2018mxmo');
+		this.props.fetchSettings();
+		this.props.fetchMatchData('2018mxmo');
 	}
 
 	submit(values, dispatch) {
@@ -53,21 +53,22 @@ class ScoutingPage extends React.Component {
 					<ScoutingForm onSubmit={this.submit} />
 				</div>
 			);
-		};
+		}
 	}
 }
 
 function mapStateToProps(state) {
 	return {
-		matchData: state.matchData,
 		settings: state.settings,
+		matchData: state.matchData,
 	};
 }
 
 function mapDispatchToProps(dispatch) {
 	return {
-		tbaActions: bindActionCreators(tbaActions, dispatch),
-		allActions: bindActionCreators(allActions, dispatch)
+		fetchSettings: bindActionCreators(fetchSettings, dispatch),
+		fetchMatchData: bindActionCreators(fetchMatchData, dispatch),
+		submitScoutingData: bindActionCreators(submitScoutingData, dispatch),
 	};
 }
 

@@ -1,10 +1,9 @@
 // Library imports
 import React from 'react';
 import {connect} from 'react-redux';
-import {bindActionCreators} from 'redux';
 
 // Actions
-import * as tbaActions from '../actions/teamActionsTBA';
+import {} from '../actions/teamActionsTBA';
 
 // TODO: More Comments
 
@@ -31,7 +30,6 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
 	return {
-		tbaActions: bindActionCreators(tbaActions, dispatch)
 	}
 }
 

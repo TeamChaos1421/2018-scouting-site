@@ -1,19 +1,19 @@
-import * as tbaActions from './allActions';
+import {TBA_AUTH_TOKEN_V3, TBA_RECEIVE_MATCH_DATA} from './allActions';
 
 export function receiveMatchData(data) {
 	return {
-		type: tbaActions.TBA_RECEIVE_MATCH_DATA,
+		type: TBA_RECEIVE_MATCH_DATA,
 		data: data,
 	}
 }
 
 export function fetchMatchData(regional) {
-	let url = 'http://www.thebluealliance.com/api/v2/event/' + regional + '/matches';
+	let url = 'http://www.thebluealliance.com/api/v3/event/' + regional + '/matches';
 
 	return (dispatch) => {
 		fetch(url, {
 			headers: {
-				'X-TBA-APP-Id': 'frc1421:scouting-site:v3',
+				'x-tba-auth-key': TBA_AUTH_TOKEN_V3,
 			},
 		})
 		.then(response =>
@@ -39,4 +39,3 @@ export function fetchMatchData(regional) {
 		});
 	};
 }
-

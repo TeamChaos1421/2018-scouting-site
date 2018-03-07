@@ -1,8 +1,8 @@
-import * as allActions from './allActions';
+import {SUBMITTED_SCOUTING_DATA, DB_AUTH_TOKEN} from './allActions';
 
 export function submittedScoutingData(data) {
 	return {
-		type: allActions.SUBMITTED_SCOUTING_DATA,
+		type: SUBMITTED_SCOUTING_DATA,
 		data: data,
 	}
 }
@@ -14,7 +14,7 @@ export function submitScoutingData(data) {
 		fetch(url, {
 			method: 'POST',
 			headers: {
-				'Authorization': 'Basic ' + allActions.AUTH_TOKEN,
+				'Authorization': 'Basic ' + DB_AUTH_TOKEN,
 				'Content-Type': 'application/json',
 			},
 			body: JSON.stringify({
