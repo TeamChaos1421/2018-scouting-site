@@ -14,10 +14,10 @@ import AdminForm from './AdminForm';
 
 class AdminPage extends React.Component {
 	submit(values, dispatch) {
+		// TODO: Make invalid values not break everything
 		let newSettings = {
 			_rev: this.props.settings._rev,
 			regional: values.regional,
-			matchNumber: parseInt(values.matchNumber),
 			users: [
 				{
 					'name': values.name0,
@@ -40,7 +40,11 @@ class AdminPage extends React.Component {
 			],
 		};
 
-		console.log(newSettings);
+		// Make match settings not break things
+		let matchNumber = parseInt(values.matchNumber);
+		if((matchNumber !== NaN) && (matchNumber > 0) && (matchNumber < 80)) {
+			newSettings.matchNumber = parseInt(values.matchNumber);
+		}
 
 		dispatch(updateSettings(newSettings));
 	}
