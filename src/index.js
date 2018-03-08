@@ -2,7 +2,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import {Provider} from 'react-redux';
-import {BrowserRouter} from 'react-router-dom';
 
 // Bootstrap Stuff
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -25,9 +24,7 @@ store.dispatch(fetchSettings());
 // Do the routing and then render
 ReactDOM.render(
 	<Provider store={store}>
-		<BrowserRouter>
-			<App />
-		</BrowserRouter>
+		<App />
 	</Provider>
 	,
 	document.getElementById('root')

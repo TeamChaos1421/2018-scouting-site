@@ -22,7 +22,6 @@ function getMatch(matches, matchNumber) {
 class ScoutingPage extends React.Component {
 	componentWillMount() {
 		// TODO; Get regional from DB
-		this.props.fetchSettings();
 		this.props.fetchMatchData('2018mxmo');
 	}
 
@@ -68,7 +67,6 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
 	return {
-		fetchSettings: bindActionCreators(fetchSettings, dispatch),
 		fetchMatchData: bindActionCreators(fetchMatchData, dispatch),
 		submitScoutingData: bindActionCreators(submitScoutingData, dispatch),
 	};

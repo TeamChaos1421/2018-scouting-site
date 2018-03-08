@@ -13,11 +13,6 @@ import {fetchSettings, updateSettings} from '../actions/settingsActions';
 import AdminForm from './AdminForm';
 
 class AdminPage extends React.Component {
-	componentWillMount() {
-		// TODO; Get regional from DB
-		this.props.fetchSettings();
-	}
-
 	submit(values, dispatch) {
 		let newSettings = {
 			_rev: this.props.settings._rev,
@@ -75,7 +70,6 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
 	return {
-		fetchSettings: bindActionCreators(fetchSettings, dispatch),
 	}
 }
 
