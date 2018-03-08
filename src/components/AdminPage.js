@@ -17,7 +17,7 @@ class AdminPage extends React.Component {
 		let newSettings = {
 			_rev: this.props.settings._rev,
 			regional: values.regional,
-			matchNumber: values.matchNumber,
+			matchNumber: parseInt(values.matchNumber),
 			users: [
 				{
 					'name': values.name0,
