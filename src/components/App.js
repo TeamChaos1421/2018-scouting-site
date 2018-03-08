@@ -50,12 +50,14 @@ class App extends React.Component {
 							<IndexLinkContainer to='/'>
 								<NavItem eventKey={2}>Scout</NavItem>
 							</IndexLinkContainer>
+							{/*
 							<LinkContainer to='/teams'>
 								<NavItem eventKey={2}>Teams</NavItem>
 							</LinkContainer>
 							<LinkContainer to='/matches'>
 								<NavItem eventKey={2}>Matches</NavItem>
 							</LinkContainer>
+							*/}
 							<LinkContainer to='/administration'>
 								<NavItem eventKey={2}>Administration</NavItem>
 							</LinkContainer>
