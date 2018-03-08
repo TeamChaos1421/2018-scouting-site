@@ -3,8 +3,14 @@ import React from 'react';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 
+import {Field, reduxForm} from 'redux-form';
+import {FormGroup, FormControl, ControlLabel, Checkbox, Radio, Button, ToggleButton, ToggleButtonGroup} from 'react-bootstrap';
+
 // Actions
-import {fetchSettings} from '../actions/settingsActions';
+import {fetchSettings, updateSettings} from '../actions/settingsActions';
+
+// Components
+import AdminForm from './AdminForm';
 
 class AdminPage extends React.Component {
 	componentWillMount() {
@@ -13,7 +19,35 @@ class AdminPage extends React.Component {
 	}
 
 	submit(values, dispatch) {
-		//dispatch(submitScoutingData(values));
+		let newSettings = {
+			_rev: this.props.settings._rev,
+			regional: values.regional,
+			matchNumber: values.matchNumber,
+			users: [
+				{
+					'name': values.name0,
+				},
+				{
+					'name': values.name1,
+				},
+				{
+					'name': values.name2,
+				},
+				{
+					'name': values.name3,
+				},
+				{
+					'name': values.name4,
+				},
+				{
+					'name': values.name5,
+				},
+			],
+		};
+
+		console.log(newSettings);
+
+		dispatch(updateSettings(newSettings));
 	}
 
 	render() {
@@ -25,9 +59,8 @@ class AdminPage extends React.Component {
 			);
 		} else {
 			return (
-				<div className='matchList'>
-					Current Regional: {this.props.settings.regional}<br/>
-					Current Match: {this.props.settings.matchNumber}<br/>
+				<div>
+					<AdminForm onSubmit={this.submit.bind(this)} />
 				</div>
 			);
 		}
