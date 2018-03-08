@@ -21,8 +21,24 @@ function getMatch(matches, matchNumber) {
 
 class ScoutingPage extends React.Component {
 	componentWillMount() {
+		// Update settings
+		this.props.fetchSettings();
+
 		// TODO; Get regional from DB
 		this.props.fetchMatchData('2018mxmo');
+	}
+
+	componentDidMount() {
+		let timer = setInterval(this.tick.bind(this), 1500);
+		this.setState({timer});
+	}
+
+	componentWillUnmount() {
+		//this.clearInterval(this.state.timer);
+	}
+
+	tick() {
+		this.props.fetchSettings();
 	}
 
 	submit(values, dispatch) {
@@ -67,6 +83,7 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
 	return {
+		fetchSettings: bindActionCreators(fetchSettings, dispatch),
 		fetchMatchData: bindActionCreators(fetchMatchData, dispatch),
 		submitScoutingData: bindActionCreators(submitScoutingData, dispatch),
 	};

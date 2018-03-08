@@ -19,13 +19,13 @@ function ScoutingHeader(props) {
 							<td>{users[1]}</td>
 						</tr>
 						<tr>
-							<td>{users[1]}</td>
+							<td>{users[2]}</td>
 							<td className='danger'>{redTeams[1]}</td>
 							<td className='info'>{blueTeams[1]}</td>
 							<td>{users[3]}</td>
 						</tr>
 						<tr>
-							<td>{users[2]}</td>
+							<td>{users[4]}</td>
 							<td className='danger'>{redTeams[2]}</td>
 							<td className='info'>{blueTeams[2]}</td>
 							<td>{users[5]}</td>
