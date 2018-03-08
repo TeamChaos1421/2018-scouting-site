@@ -30,6 +30,12 @@ function OptionQuestion(props) {
 }
 
 class AdminForm extends React.Component {
+	handleChange(event) {
+		console.log(event)
+		this.setState({[event.target.name]: event.target.value});
+		this.handleSubmit(event);
+	}
+
 	render() {
 		return (
 			<form onSubmit={this.props.handleSubmit}>
@@ -58,6 +64,10 @@ class AdminForm extends React.Component {
 
 AdminForm = reduxForm({
 	form: 'adminForm',
+	onChange: (values, dispatch, props, previousValues) => {
+		props.submit();
+		dispatch(fetchSettings());
+	}
 })(AdminForm);
 
 function mapStateToProps(state) {
