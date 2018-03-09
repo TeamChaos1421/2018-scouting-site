@@ -36,6 +36,9 @@ class TeamList extends React.Component {
 					return acc;
 				}
 			}, []);
+
+			teams.sort();
+
 			return (
 				<div className='matchList'>
 					{

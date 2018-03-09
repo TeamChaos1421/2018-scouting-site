@@ -7,12 +7,13 @@ import * as allActions from '../actions/allActions';
 
 // Reducers
 import teamList from './teamListReducer';
-import matchData from './matchDataReducer';
+import matchDataTBA from './matchDataReducer';
 import settings from './settingsReducer';
 import scouting from './scoutingReducer';
 import testData from './testReducer';
 import userData from './userReducer';
 import teamData from './teamReducer';
+import matchData from './matchReducer';
 
 // Combine our reducers together
 const rootReducer = combineReducers({
@@ -23,6 +24,7 @@ const rootReducer = combineReducers({
 	testData,
 	userData,
 	teamData,
+	matchData,
 	form: formReducer.plugin({
 		scoutingForm: (state, action) => {
 			switch(action.type) {

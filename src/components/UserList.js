@@ -36,6 +36,9 @@ class UserList extends React.Component {
 					return acc;
 				}
 			}, []);
+
+			users.sort();
+
 			return (
 				<div className='matchList'>
 					{

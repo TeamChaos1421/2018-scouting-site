@@ -16,6 +16,7 @@ import TeamPage from './TeamPage';
 import UserList from './UserList';
 import UserPage from './UserPage';
 import MatchList from './MatchList';
+import MatchPage from './MatchPage';
 import AdminPage from './AdminPage';
 import ScoutingPage from './ScoutingPage';
 
@@ -80,6 +81,8 @@ class App extends React.Component {
 						<Route path='/team/*' component={TeamPage} />
 
 						<Route path='/matches' component={MatchList} />
+						<Route exact path='/match' component={MatchPage} />
+						<Route path='/match/*' component={MatchPage} />
 					</div>
 				</div>
 			</BrowserRouter>

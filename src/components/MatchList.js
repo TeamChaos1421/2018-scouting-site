@@ -2,52 +2,54 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
+import {Link} from 'react-router-dom';
 
 // Actions
-import {fetchMatchData} from '../actions/regionalActionsTBA';
-
-// TODO: More comments
-
-
-
-
-
-function MatchPreview(props) {
-	return (
-		<tr key={props.match_number}>
-			<td><a href={'/match/' + props.match_number}>{props.match_number}</a></td>
-		</tr>
-	);
-}
+import {fetchMatchList} from '../actions/matchActions';
 
 class MatchList extends React.Component {
 	componentWillMount() {
-		this.props.fetchMatchData('2018flor');
+		this.props.fetchMatchList({
+			selector: {
+				matchNumber: {
+					'$exists': true,
+				},
+			},
+			fields: ['matchNumber'],
+			'limit': 500,
+		});
 	}
 
 	render() {
-		if(!this.props.matchData) {
+		if(!this.props.matchData || !this.props.matchData.matchList) {
 			return (
 				<div>
-					Loading match list...
+					Running query...
 				</div>
 			);
 		} else {
+			let matches = this.props.matchData.matchList.docs.reduce((acc, cur) => {
+				if(acc.includes(cur.matchNumber)) {
+					return acc;
+				} else {
+					acc.push(cur.matchNumber)
+					return acc;
+				}
+			}, []);
+
+			matches.sort();
+
 			return (
 				<div className='matchList'>
-					<table>
-						<tbody>
-							{
-								this.props.matchData.map((match, index) => {
-									if(match.comp_level === 'qm') {
-										return MatchPreview(match);
-									} else {
-										return null;
-									}
-								})
-							}
-						</tbody>
-					</table>
+					{
+						matches.map((match, index) => {
+							return (
+								<div>
+								<Link to={'/match/' + match}>{match}</Link>
+								</div>
+							);
+						})
+					}
 				</div>
 			);
 		}
@@ -62,7 +64,7 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
 	return {
-		fetchMatchData: bindActionCreators(fetchMatchData, dispatch)
+		fetchMatchList: bindActionCreators(fetchMatchList, dispatch)
 	};
 }
 

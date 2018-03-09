@@ -59,7 +59,7 @@ class ScoutingPage extends React.Component {
 				</div>
 			);
 		} else {
-			var match = getMatch(this.props.matchData, this.props.settings.matchNumber);
+			var match = getMatch(this.props.matchDataTBA, this.props.settings.matchNumber);
 
 			return (
 				<div className='matchList'>
@@ -77,7 +77,7 @@ class ScoutingPage extends React.Component {
 function mapStateToProps(state) {
 	return {
 		settings: state.settings,
-		matchData: state.matchData,
+		matchDataTBA: state.matchDataTBA,
 	};
 }
 
