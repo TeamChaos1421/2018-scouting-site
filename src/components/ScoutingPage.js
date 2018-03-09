@@ -25,7 +25,7 @@ class ScoutingPage extends React.Component {
 		this.props.fetchSettings();
 
 		// TODO; Get regional from DB
-		this.props.fetchMatchData('2018mxmo');
+		this.props.fetchMatchData('2018flor');
 	}
 
 	componentDidMount() {
