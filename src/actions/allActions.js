@@ -20,6 +20,12 @@ export const SUBMITTED_SCOUTING_DATA = 'SUBMITTED_SCOUTING_DATA';
 export const DB_FETCH_TEST_DATA = 'DB_FETCH_TEST_DATA';
 export const DB_RECEIVE_TEST_DATA = 'DB_RECEIVE_TEST_DATA';
 
+// User Data
+export const DB_FETCH_USER_DATA = 'DB_FETCH_USER_DATA';
+export const DB_RECEIVE_USER_DATA = 'DB_RECEIVE_USER_DATA';
+export const DB_FETCH_USER_LIST = 'DB_FETCH_USER_LIST';
+export const DB_RECEIVE_USER_LIST = 'DB_RECEIVE_USER_LIST';
+
 // Not technically an action...
 export const DB_AUTH_TOKEN = 'Y2hhb3MyMDE4c2NvdXRpbmc6Y2hhb3MyMDE4c2NvdXRpbmc=';
 export const TBA_AUTH_TOKEN_V3 = 'HYXC2ETa0hkDvIF1dV6veZr5gqK2pybJJw4jvMUsJ93GuutRJsWzO4MvfM95opit';

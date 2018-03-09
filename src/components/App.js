@@ -13,6 +13,8 @@ import {fetchSettings} from '../actions/settingsActions';
 // Pages
 import TeamList from './TeamList';
 import TeamPage from './TeamPage';
+import UserList from './UserList';
+import UserPage from './UserPage';
 import MatchList from './MatchList';
 import AdminPage from './AdminPage';
 import ScoutingPage from './ScoutingPage';
@@ -58,6 +60,9 @@ class App extends React.Component {
 								<NavItem eventKey={2}>Matches</NavItem>
 							</LinkContainer>
 							*/}
+							<IndexLinkContainer to='/users'>
+								<NavItem eventKey={4}>Users</NavItem>
+							</IndexLinkContainer>
 							<LinkContainer to='/administration'>
 								<NavItem eventKey={2}>Administration</NavItem>
 							</LinkContainer>
@@ -67,6 +72,9 @@ class App extends React.Component {
 					<div style={divStyle}>
 						<Route exact path='/' component={ScoutingPage} />
 						<Route path='/teams' component={TeamList} />
+						<Route exact path='/users' component={UserList} />
+						<Route exact path='/user' component={UserPage} />
+						<Route path='/user/*' component={UserPage} />
 						<Route path='/team/*' component={TeamPage} />
 						<Route path='/matches' component={MatchList} />
 						<Route path='/administration' component={AdminPage} />
