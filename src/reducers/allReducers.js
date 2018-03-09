@@ -12,6 +12,7 @@ import settings from './settingsReducer';
 import scouting from './scoutingReducer';
 import testData from './testReducer';
 import userData from './userReducer';
+import teamData from './teamReducer';
 
 // Combine our reducers together
 const rootReducer = combineReducers({
@@ -21,6 +22,7 @@ const rootReducer = combineReducers({
 	scouting,
 	testData,
 	userData,
+	teamData,
 	form: formReducer.plugin({
 		scoutingForm: (state, action) => {
 			switch(action.type) {

@@ -2,49 +2,51 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
+import {Link} from 'react-router-dom';
 
 // Actions
-import {fetchTeamList} from '../actions/teamActionsTBA';
-
-// TODO: More comments
-
-
-
-
-
-function TeamPreview(props) {
-	return (
-		<tr key={props.team_number}>
-			<td><a href={'/team/' + props.team_number}>{props.team_number}</a></td>
-			<td>{props.nickname}</td>
-		</tr>
-	);
-}
+import {fetchTeamList} from '../actions/teamActions';
 
 class TeamList extends React.Component {
 	componentWillMount() {
-		this.props.fetchTeamList('2018mxmo');
+		this.props.fetchTeamList({
+			selector: {
+				teamNumber: {
+					'$exists': true,
+				},
+			},
+			fields: ['teamNumber'],
+			'limit': 500,
+		});
 	}
 
 	render() {
-		if(!this.props.teamList || this.props.teamList == null) {
+		if(!this.props.teamData || !this.props.teamData.teamList) {
 			return (
 				<div>
-					Loading team list...
+					Running query...
 				</div>
 			);
 		} else {
+			let teams = this.props.teamData.teamList.docs.reduce((acc, cur) => {
+				if(acc.includes(cur.teamNumber)) {
+					return acc;
+				} else {
+					acc.push(cur.teamNumber)
+					return acc;
+				}
+			}, []);
 			return (
-				<div className='teamList'>
-					<table>
-						<tbody>
-							{
-								this.props.teamList.map((team, index) => {
-									return TeamPreview(team);
-								})
-							}
-						</tbody>
-					</table>
+				<div className='matchList'>
+					{
+						teams.map((team, index) => {
+							return (
+								<div>
+								<Link to={'/team/' + team}>{team}</Link>
+								</div>
+							);
+						})
+					}
 				</div>
 			);
 		}
@@ -53,7 +55,7 @@ class TeamList extends React.Component {
 
 function mapStateToProps(state) {
 	return {
-		teamList: state.teamList,
+		teamData: state.teamData,
 	};
 }
 
