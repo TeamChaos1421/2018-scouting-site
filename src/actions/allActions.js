@@ -16,6 +16,10 @@ export const TBA_RECEIVE_MATCH_DATA = 'TBA_RECEIVE_MATCH_DATA';
 export const SUBMIT_SCOUTING_DATA = 'SUBMIT_SCOUTING_DATA';
 export const SUBMITTED_SCOUTING_DATA = 'SUBMITTED_SCOUTING_DATA';
 
+// Analyis Actions
+export const DB_FETCH_TEST_DATA = 'DB_FETCH_TEST_DATA';
+export const DB_RECEIVE_TEST_DATA = 'DB_RECEIVE_TEST_DATA';
+
 // Not technically an action...
 export const DB_AUTH_TOKEN = 'Y2hhb3MyMDE4c2NvdXRpbmc6Y2hhb3MyMDE4c2NvdXRpbmc=';
 export const TBA_AUTH_TOKEN_V3 = 'HYXC2ETa0hkDvIF1dV6veZr5gqK2pybJJw4jvMUsJ93GuutRJsWzO4MvfM95opit';
