@@ -22,7 +22,7 @@ function MatchPreview(props) {
 
 class MatchList extends React.Component {
 	componentWillMount() {
-		this.props.fetchMatchData('2018mxmo');
+		this.props.fetchMatchData('2018flor');
 	}
 
 	render() {
