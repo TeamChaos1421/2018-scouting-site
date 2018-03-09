@@ -1,7 +1,6 @@
 // Library imports
 import React from 'react';
 import {connect} from 'react-redux';
-import {Table} from 'react-bootstrap';
 import {bindActionCreators} from 'redux';
 import {Link} from 'react-router-dom';
 
@@ -22,7 +21,6 @@ class UserList extends React.Component {
 	}
 
 	render() {
-		console.log(this.props);
 		if(!this.props.userData) {
 			return (
 				<div>
@@ -43,8 +41,8 @@ class UserList extends React.Component {
 					{
 						users.map((user, index) => {
 							return (
-								<div>
-								<Link to={'/user/' + user}>{user}</Link>
+								<div key={user}>
+									<Link to={'/user/' + user}>{user}</Link>
 								</div>
 							);
 						})

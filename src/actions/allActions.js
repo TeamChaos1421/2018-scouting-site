@@ -16,17 +16,17 @@ export const TBA_RECEIVE_MATCH_DATA = 'TBA_RECEIVE_MATCH_DATA';
 export const SUBMIT_SCOUTING_DATA = 'SUBMIT_SCOUTING_DATA';
 export const SUBMITTED_SCOUTING_DATA = 'SUBMITTED_SCOUTING_DATA';
 
-// Analyis Actions
+// Test Data Actions
 export const DB_FETCH_TEST_DATA = 'DB_FETCH_TEST_DATA';
 export const DB_RECEIVE_TEST_DATA = 'DB_RECEIVE_TEST_DATA';
 
-// User Data
+// User Data Actions
 export const DB_FETCH_USER_DATA = 'DB_FETCH_USER_DATA';
 export const DB_RECEIVE_USER_DATA = 'DB_RECEIVE_USER_DATA';
 export const DB_FETCH_USER_LIST = 'DB_FETCH_USER_LIST';
 export const DB_RECEIVE_USER_LIST = 'DB_RECEIVE_USER_LIST';
 
-// Team Data
+// Team Data Actions
 export const DB_FETCH_TEAM_DATA = 'DB_FETCH_TEAM_DATA';
 export const DB_RECEIVE_TEAM_DATA = 'DB_RECEIVE_TEAM_DATA';
 export const DB_FETCH_TEAM_LIST = 'DB_FETCH_TEAM_LIST';

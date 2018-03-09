@@ -1,7 +1,7 @@
 // Library imports
 import React from 'react';
 import {Field, reduxForm} from 'redux-form';
-import {FormGroup, FormControl, ControlLabel, Checkbox, Radio, Button, ToggleButton, ToggleButtonGroup} from 'react-bootstrap';
+import {FormGroup, FormControl, ControlLabel, Button, ToggleButton, ToggleButtonGroup} from 'react-bootstrap';
 
 // The reason for the next 3 functions is described here:
 // https://github.com/erikras/redux-form/issues/1397
@@ -54,17 +54,17 @@ let ScoutingForm = (props) => {
 		<form onSubmit={props.handleSubmit}>
 			<FormGroup>
 				<ControlLabel>Username</ControlLabel>
-				<Field component={ReduxFormControl} name='username' type='text' autocomplete='off' />
+				<Field component={ReduxFormControl} name='username' type='text' autoComplete='off' />
 			</FormGroup>
 
 			<FormGroup>
 				<ControlLabel>Match Number</ControlLabel>
-				<Field component={ReduxFormControl} name='matchNumber' type='text' autocomplete='off' />
+				<Field component={ReduxFormControl} name='matchNumber' type='text' autoComplete='off' />
 			</FormGroup>
 
 			<FormGroup>
 				<ControlLabel>Team Number</ControlLabel>
-				<Field component={ReduxFormControl} name='teamNumber' type='text' autocomplete='off' />
+				<Field component={ReduxFormControl} name='teamNumber' type='text' autoComplete='off' />
 			</FormGroup>
 
 			<hr/>

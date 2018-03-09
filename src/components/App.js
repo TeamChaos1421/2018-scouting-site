@@ -20,8 +20,8 @@ import AdminPage from './AdminPage';
 import ScoutingPage from './ScoutingPage';
 
 let divStyle = {
-	'padding-left': '15px',
-	'padding-right': '15px',
+	'paddingLeft': '15px',
+	'paddingRight': '15px',
 }
 	
 // The main layout for the application
@@ -54,6 +54,10 @@ class App extends React.Component {
 							</IndexLinkContainer>
 							<IndexLinkContainer to='/teams'>
 								<NavItem eventKey={2}>Teams</NavItem>
+							</IndexLinkContainer>
+							<IndexLinkContainer to='/matches'>
+								<NavItem eventKey={3}>Matches</NavItem>
+							</IndexLinkContainer>
 							<IndexLinkContainer to='/users'>
 								<NavItem eventKey={4}>Users</NavItem>
 							</IndexLinkContainer>

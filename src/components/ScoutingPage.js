@@ -63,7 +63,7 @@ class ScoutingPage extends React.Component {
 
 			return (
 				<div className='matchList'>
-					<div style={{'text-align': 'center'}}>
+					<div style={{'textAlign': 'center'}}>
 						<h1>Match {this.props.settings.matchNumber}</h1>
 						<ScoutingHeader style={{'text-align': 'center'}} users={this.props.settings.users} alliances={match.alliances} />
 					</div>

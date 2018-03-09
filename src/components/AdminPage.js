@@ -1,13 +1,9 @@
 // Library imports
 import React from 'react';
 import {connect} from 'react-redux';
-import {bindActionCreators} from 'redux';
-
-import {Field, reduxForm} from 'redux-form';
-import {FormGroup, FormControl, ControlLabel, Checkbox, Radio, Button, ToggleButton, ToggleButtonGroup} from 'react-bootstrap';
 
 // Actions
-import {fetchSettings, updateSettings} from '../actions/settingsActions';
+import {updateSettings} from '../actions/settingsActions';
 
 // Components
 import AdminForm from './AdminForm';
@@ -41,9 +37,9 @@ class AdminPage extends React.Component {
 		};
 
 		// Make match settings not break things
-		let matchNumber = parseInt(values.matchNumber);
-		if((matchNumber !== NaN) && (matchNumber > 0) && (matchNumber < 80)) {
-			newSettings.matchNumber = parseInt(values.matchNumber);
+		let matchNumber = parseInt(values.matchNumber, 10);
+		if(isNaN(matchNumber) && (matchNumber > 0) && (matchNumber < 80)) {
+			newSettings.matchNumber = parseInt(values.matchNumber, 10);
 		}
 
 		dispatch(updateSettings(newSettings));

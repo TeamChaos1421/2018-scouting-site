@@ -8,7 +8,7 @@ function ScoutingHeader(props) {
 	let blueTeams = props.alliances.blue.team_keys.map(teamNumber => teamNumber.substring(3));
 
 	return (
-		<div style={{width: '100%', 'font-size': '20px'}}>
+		<div style={{width: '100%', 'fontSize': '20px'}}>
 			<center>
 				<Table bordered condensed style={{width: 'auto'}}>
 					<tbody>

@@ -1,13 +1,12 @@
 // Library imports
 import React from 'react';
 import {connect} from 'react-redux';
-import {bindActionCreators} from 'redux';
 
 import {Field, reduxForm} from 'redux-form';
-import {FormGroup, FormControl, ControlLabel, Checkbox, Radio, Button, ToggleButton, ToggleButtonGroup} from 'react-bootstrap';
+import {FormGroup, FormControl, ControlLabel, Button, ToggleButton, ToggleButtonGroup} from 'react-bootstrap';
 
 // Actions
-import {fetchSettings, updateSettings} from '../actions/settingsActions';
+import {fetchSettings} from '../actions/settingsActions';
 
 function ReduxFormControl({input, meta, ...props}) {
 	return <FormControl {...props} {...input} />;
