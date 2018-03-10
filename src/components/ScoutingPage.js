@@ -15,7 +15,6 @@ import ScoutingHeader from './ScoutingHeader';
 
 function getMatch(matches, matchNumber) {
 	return matches.find(function(match) {
-		console.log(match.comp_level + ', ' + match.match_number + ',' + ((parseInt(match.match_number) === parseInt(matchNumber)) ? 'Y' : 'N' ));
 		return (match.comp_level === 'qm' && match.match_number === matchNumber)
 	});
 }
@@ -60,7 +59,6 @@ class ScoutingPage extends React.Component {
 				</div>
 			);
 		} else {
-			console.log(this.props.matchDataTBA);
 			let match = getMatch(this.props.matchDataTBA, this.props.settings.matchNumber);
 			if(!match) {
 				match = {
