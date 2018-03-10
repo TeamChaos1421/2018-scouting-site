@@ -24,6 +24,7 @@ import DataPage from './DataPage';
 let divStyle = {
 	'paddingLeft': '15px',
 	'paddingRight': '15px',
+	'paddingBottom': '15px',
 }
 	
 // The main layout for the application
