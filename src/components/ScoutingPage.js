@@ -15,6 +15,7 @@ import ScoutingHeader from './ScoutingHeader';
 
 function getMatch(matches, matchNumber) {
 	return matches.find(function(match) {
+		console.log(match.comp_level + ', ' + match.match_number + ',' + ((parseInt(match.match_number) === parseInt(matchNumber)) ? 'Y' : 'N' ));
 		return (match.comp_level === 'qm' && match.match_number === matchNumber)
 	});
 }
@@ -61,13 +62,15 @@ class ScoutingPage extends React.Component {
 		} else {
 			console.log(this.props.matchDataTBA);
 			let match = getMatch(this.props.matchDataTBA, this.props.settings.matchNumber);
-			match = {
-				alliances: {
-					blue: {
-						team_keys: ['   TBAbroke', '   TBAbroke', '   TBAbroke']
-					},
-					red: {
-						team_keys: ['   TBAbroke', '   TBAbroke', '   TBAbroke']
+			if(!match) {
+				match = {
+					alliances: {
+						blue: {
+							team_keys: ['   the', '   settings', '   administration']
+						},
+						red: {
+							team_keys: ['   Fix', '   match', '   in']
+						}
 					}
 				}
 			}
