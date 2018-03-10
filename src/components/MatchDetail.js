@@ -115,6 +115,7 @@ export function MatchDetail(props) {
 	// Spit it out!
 	return (
 		<div>
+			<CSVLink data={matchData} headers={headers}>Download as CSV</CSVLink>
 			<Table bordered condensed>
 				<thead>
 					<MatchHeader />
@@ -127,7 +128,6 @@ export function MatchDetail(props) {
 					}
 				</tbody>
 			</Table>
-			<CSVLink data={matchData} headers={headers}>Export as CSV</CSVLink>
 		</div>
 	);
 }
