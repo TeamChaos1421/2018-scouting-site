@@ -18,7 +18,7 @@ import matchData from './matchReducer';
 // Combine our reducers together
 const rootReducer = combineReducers({
 	teamList,
-	matchData,
+	matchDataTBA,
 	settings,
 	scouting,
 	testData,

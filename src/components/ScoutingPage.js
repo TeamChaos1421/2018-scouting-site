@@ -52,7 +52,7 @@ class ScoutingPage extends React.Component {
 					Loading settings...
 				</div>
 			);
-		} else if(!this.props.matchData) {
+		} else if(!this.props.matchDataTBA) {
 			return (
 				<div>
 					Loading match list...
