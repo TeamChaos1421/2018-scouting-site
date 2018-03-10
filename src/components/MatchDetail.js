@@ -103,9 +103,9 @@ export function MatchDetail(props) {
 		{label: 'Attempts Switch', key: 'teleopSwitchAttempt'},
 		{label: 'Attempts Exchange', key: 'teleopExchangeAttempt'},
 
-		{label: 'Cubes Scored on Scale (teleop)', key: 'autoScaleScore'},
-		{label: 'Cubes Scored on Switch (teleop)', key: 'autoSwitchScore'},
-		{label: 'Cubes Scored in Exchange (teleop)', key: 'autoExchange'},
+		{label: 'Cubes Scored on Scale (teleop)', key: 'teleopScaleScore'},
+		{label: 'Cubes Scored on Switch (teleop)', key: 'teleopSwitchScore'},
+		{label: 'Cubes Scored in Exchange (teleop)', key: 'teleopExchange'},
 
 		{label: 'Attempts to Climb', key: 'attemptsClimb'},
 		{label: 'Climbs', key: 'climbs'},
