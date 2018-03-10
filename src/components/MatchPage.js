@@ -20,7 +20,7 @@ class MatchPage extends React.Component {
 				},
 				matchNumber: this.props.match.params[0],
 			},
-			'limit': 500,
+			'limit': 1000,
 		});
 	}
 

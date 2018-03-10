@@ -20,7 +20,7 @@ class UserPage extends React.Component {
 				},
 				username: this.props.match.params[0],
 			},
-			'limit': 500,
+			'limit': 1000,
 		});
 	}
 

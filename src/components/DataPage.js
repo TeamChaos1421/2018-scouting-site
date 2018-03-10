@@ -31,7 +31,7 @@ class DataPage extends React.Component {
 				},
 				dataNumber: this.props.match.params[0],
 			},
-			'limit': 500,
+			'limit': 1000,
 		});
 	}
 
