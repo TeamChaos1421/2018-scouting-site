@@ -33,23 +33,7 @@ class UserPage extends React.Component {
 			);
 		} else {
 			return (
-				<div className='userList'>
-					<Table bordered condensed>
-						<thead>
-							<th>User</th>
-							<th>Match Number</th>
-							<th>Team Number</th>
-						</thead>
-						<tbody>
-							{
-								this.props.userData.userData.docs.map((userData, index) => {
-									return MatchOverview(userData);
-								})
-							}
-						</tbody>
-					</Table>
-					<MatchDetail matchData={this.props.userData.userData.docs} />
-				</div>
+				<MatchDetail matchData={this.props.userData.userData.docs} />
 			);
 		}
 	}

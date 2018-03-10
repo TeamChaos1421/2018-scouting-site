@@ -33,23 +33,7 @@ class MatchPage extends React.Component {
 			);
 		} else {
 			return (
-				<div className='matchList'>
-					<Table bordered condensed>
-						<thead>
-							<th>User</th>
-							<th>Match Number</th>
-							<th>Team Number</th>
-						</thead>
-						<tbody>
-							{
-								this.props.matchData.matchData.docs.map((matchData, index) => {
-									return MatchOverview(matchData);
-								})
-							}
-						</tbody>
-					</Table>
-					<MatchDetail matchData={this.props.matchData.matchData.docs} />
-				</div>
+				<MatchDetail matchData={this.props.matchData.matchData.docs} />
 			);
 		}
 	}

@@ -44,23 +44,7 @@ class TeamPage extends React.Component {
 			);
 		} else {
 			return (
-				<div className='matchList'>
-					<Table bordered condensed>
-						<thead>
-							<th>User</th>
-							<th>Match Number</th>
-							<th>Team Number</th>
-						</thead>
-						<tbody>
-							{
-								this.props.teamData.teamData.docs.map((matchData, index) => {
-									return MatchOverview(matchData);
-								})
-							}
-						</tbody>
-					</Table>
-					<MatchDetail matchData={this.props.teamData.teamData.docs} />
-				</div>
+				<MatchDetail matchData={this.props.teamData.teamData.docs} />
 			);
 		}
 	}
