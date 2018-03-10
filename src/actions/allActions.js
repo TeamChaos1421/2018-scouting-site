@@ -32,11 +32,17 @@ export const DB_RECEIVE_TEAM_DATA = 'DB_RECEIVE_TEAM_DATA';
 export const DB_FETCH_TEAM_LIST = 'DB_FETCH_TEAM_LIST';
 export const DB_RECEIVE_TEAM_LIST = 'DB_RECEIVE_TEAM_LIST';
 
-// Team Data Actions
+// Match Data Actions
 export const DB_FETCH_MATCH_DATA = 'DB_FETCH_MATCH_DATA';
 export const DB_RECEIVE_MATCH_DATA = 'DB_RECEIVE_MATCH_DATA';
 export const DB_FETCH_MATCH_LIST = 'DB_FETCH_MATCH_LIST';
 export const DB_RECEIVE_MATCH_LIST = 'DB_RECEIVE_MATCH_LIST';
+
+// Data Data Actions
+export const DB_FETCH_DATA_DATA = 'DB_FETCH_DATA_DATA';
+export const DB_RECEIVE_DATA_DATA = 'DB_RECEIVE_DATA_DATA';
+export const DB_FETCH_DATA_LIST = 'DB_FETCH_DATA_LIST';
+export const DB_RECEIVE_DATA_LIST = 'DB_RECEIVE_DATA_LIST';
 
 // Not technically an action...
 export const DB_AUTH_TOKEN = 'Y2hhb3MyMDE4c2NvdXRpbmc6Y2hhb3MyMDE4c2NvdXRpbmc=';

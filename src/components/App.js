@@ -19,6 +19,7 @@ import MatchList from './MatchList';
 import MatchPage from './MatchPage';
 import AdminPage from './AdminPage';
 import ScoutingPage from './ScoutingPage';
+import DataPage from './DataPage';
 
 let divStyle = {
 	'paddingLeft': '15px',
@@ -62,6 +63,9 @@ class App extends React.Component {
 							<IndexLinkContainer to='/users'>
 								<NavItem eventKey={4}>Users</NavItem>
 							</IndexLinkContainer>
+							<IndexLinkContainer to='/data'>
+								<NavItem eventKey={4}>Data</NavItem>
+							</IndexLinkContainer>
 							<LinkContainer to='/administration'>
 								<NavItem eventKey={5}>Administration</NavItem>
 							</LinkContainer>
@@ -71,6 +75,7 @@ class App extends React.Component {
 					<div style={divStyle}>
 						<Route exact path='/' component={ScoutingPage} />
 						<Route path='/administration' component={AdminPage} />
+						<Route path='/data' component={DataPage} />
 
 						<Route exact path='/users' component={UserList} />
 						<Route exact path='/user' component={UserPage} />
