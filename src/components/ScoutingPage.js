@@ -59,7 +59,18 @@ class ScoutingPage extends React.Component {
 				</div>
 			);
 		} else {
-			var match = getMatch(this.props.matchDataTBA, this.props.settings.matchNumber);
+			console.log(this.props.matchDataTBA);
+			let match = getMatch(this.props.matchDataTBA, this.props.settings.matchNumber);
+			match = {
+				alliances: {
+					blue: {
+						team_keys: ['   TBAbroke', '   TBAbroke', '   TBAbroke']
+					},
+					red: {
+						team_keys: ['   TBAbroke', '   TBAbroke', '   TBAbroke']
+					}
+				}
+			}
 
 			return (
 				<div className='matchList'>
