@@ -38,7 +38,7 @@ class AdminPage extends React.Component {
 
 		// Make match settings not break things
 		let matchNumber = parseInt(values.matchNumber, 10);
-		if(!isNaN(matchNumber) && (matchNumber > 0) && (matchNumber < 80)) {
+		if(!isNaN(matchNumber) && (matchNumber > 0) && (matchNumber < 90)) {
 			newSettings.matchNumber = matchNumber;
 		}
 
