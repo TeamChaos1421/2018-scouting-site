@@ -7,6 +7,10 @@ import {bindActionCreators} from 'redux';
 // Actions
 import {fetchTeamData} from '../actions/teamActions';
 
+// Components
+import MatchOverview from './MatchOverview';
+import MatchDetail from './MatchDetail';
+
 function ScoutPreview(props) {
 	console.log(props);
 	return (
@@ -50,11 +54,12 @@ class TeamPage extends React.Component {
 						<tbody>
 							{
 								this.props.teamData.teamData.docs.map((matchData, index) => {
-									return ScoutPreview(matchData);
+									return MatchOverview(matchData);
 								})
 							}
 						</tbody>
 					</Table>
+					<MatchDetail matchData={this.props.teamData.teamData.docs} />
 				</div>
 			);
 		}

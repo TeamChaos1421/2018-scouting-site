@@ -5,22 +5,15 @@ import {Table} from 'react-bootstrap';
 import {bindActionCreators} from 'redux';
 
 // Actions
-import {fetchTestData} from '../actions/analysisActions';
+import {fetchUserData} from '../actions/userActions';
 
-function ScoutPreview(props) {
-	console.log(props);
-	return (
-		<tr key={props.matchNumber + ':' + props.teamNumber + ':' + props.username}>
-			<td>{props.username}</td>
-			<td>{props.matchNumber}</td>
-			<td>{props.teamNumber}</td>
-		</tr>
-	);
-}
+// Components
+import MatchOverview from './MatchOverview';
+import MatchDetail from './MatchDetail';
 
 class UserPage extends React.Component {
 	componentWillMount() {
-		this.props.fetchTestData({
+		this.props.fetchUserData({
 			selector: {
 				matchNumber: {
 					'$exists': true,
@@ -32,7 +25,7 @@ class UserPage extends React.Component {
 	}
 
 	render() {
-		if(!this.props.testData) {
+		if(!this.props.userData || !this.props.userData.userData) {
 			return (
 				<div>
 					Running query...
@@ -40,7 +33,7 @@ class UserPage extends React.Component {
 			);
 		} else {
 			return (
-				<div className='matchList'>
+				<div className='userList'>
 					<Table bordered condensed>
 						<thead>
 							<th>User</th>
@@ -49,12 +42,13 @@ class UserPage extends React.Component {
 						</thead>
 						<tbody>
 							{
-								this.props.testData.docs.map((matchData, index) => {
-									return ScoutPreview(matchData);
+								this.props.userData.userData.docs.map((userData, index) => {
+									return MatchOverview(userData);
 								})
 							}
 						</tbody>
 					</Table>
+					<MatchDetail matchData={this.props.userData.userData.docs} />
 				</div>
 			);
 		}
@@ -63,13 +57,13 @@ class UserPage extends React.Component {
 
 function mapStateToProps(state) {
 	return {
-		testData: state.testData,
+		userData: state.userData,
 	};
 }
 
 function mapDispatchToProps(dispatch) {
 	return {
-		fetchTestData: bindActionCreators(fetchTestData, dispatch)
+		fetchUserData: bindActionCreators(fetchUserData, dispatch)
 	};
 }
 

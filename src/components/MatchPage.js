@@ -7,16 +7,9 @@ import {bindActionCreators} from 'redux';
 // Actions
 import {fetchMatchData} from '../actions/matchActions';
 
-function ScoutPreview(props) {
-	console.log(props);
-	return (
-		<tr key={props.matchNumber + ':' + props.matchNumber + ':' + props.username}>
-			<td>{props.username}</td>
-			<td>{props.matchNumber}</td>
-			<td>{props.teamNumber}</td>
-		</tr>
-	);
-}
+// Components
+import MatchOverview from './MatchOverview';
+import MatchDetail from './MatchDetail';
 
 class MatchPage extends React.Component {
 	componentWillMount() {
@@ -50,11 +43,12 @@ class MatchPage extends React.Component {
 						<tbody>
 							{
 								this.props.matchData.matchData.docs.map((matchData, index) => {
-									return ScoutPreview(matchData);
+									return MatchOverview(matchData);
 								})
 							}
 						</tbody>
 					</Table>
+					<MatchDetail matchData={this.props.matchData.matchData.docs} />
 				</div>
 			);
 		}

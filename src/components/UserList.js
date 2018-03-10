@@ -21,7 +21,7 @@ class UserList extends React.Component {
 	}
 
 	render() {
-		if(!this.props.userData) {
+		if(!this.props.userData || !this.props.userData.userList) {
 			return (
 				<div>
 					Running query...
