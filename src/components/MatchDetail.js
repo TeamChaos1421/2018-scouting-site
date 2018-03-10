@@ -2,6 +2,7 @@
 import React from 'react';
 import _ from 'lodash';
 import {Table} from 'react-bootstrap';
+import {CSVLink} from 'react-csv';
 
 export function renderMatchJSON(match) {
 	return (
@@ -81,6 +82,36 @@ export function MatchDetail(props) {
 	let matchData = props.matchData;
 	let flipped = [];
 
+	let headers = [
+		{label: 'User', key: 'username'},
+		{label: 'Match', key: 'matchNumber'},
+		{label: 'Team', key: 'teamNumber'},
+
+		{label: 'Moves During Auto', key: 'autoMoves'},
+		{label: 'Crosses Auto Line', key: 'autoCrosses'},
+		{label: 'Attempts Scale', key: 'autoScaleAttempt'},
+		{label: 'Attempts Switch', key: 'autoSwitchAttempt'},
+		{label: 'Attempts Exchange', key: 'autoExchangeAttempt'},
+
+		{label: 'Cubes Scored on Scale (auto)', key: 'autoScaleScore'},
+		{label: 'Cubes Scored on Switch (auto)', key: 'autoSwitchScore'},
+		{label: 'Cubes Scored in Exchange (auto)', key: 'autoExchange'},
+
+		{label: 'Moves During Auto', key: 'teleopMoves'},
+		{label: 'Crosses Auto Line', key: 'teleopCrosses'},
+		{label: 'Attempts Scale', key: 'teleopScaleAttempt'},
+		{label: 'Attempts Switch', key: 'teleopSwitchAttempt'},
+		{label: 'Attempts Exchange', key: 'teleopExchangeAttempt'},
+
+		{label: 'Cubes Scored on Scale (teleop)', key: 'autoScaleScore'},
+		{label: 'Cubes Scored on Switch (teleop)', key: 'autoSwitchScore'},
+		{label: 'Cubes Scored in Exchange (teleop)', key: 'autoExchange'},
+
+		{label: 'Attempts to Climb', key: 'attemptsClimb'},
+		{label: 'Climbs', key: 'climbs'},
+		{label: 'Notes', key: 'notes'},
+	]
+
 	// Spit it out!
 	return (
 		<div>
@@ -96,6 +127,7 @@ export function MatchDetail(props) {
 					}
 				</tbody>
 			</Table>
+			<CSVLink data={matchData} headers={headers}>Export as CSV</CSVLink>
 		</div>
 	);
 }
