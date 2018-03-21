@@ -13,13 +13,13 @@ import configureStore from './configureStore';
 import App from './components/App';
 
 // Actions
-import {fetchSettings} from './actions/settingsActions.js';
+import {SETTINGS_FETCH_REQUESTED} from './actions/allActions.js';
 
 // Redux Store
 let store = configureStore();
 
 // Get stuff from the server
-store.dispatch(fetchSettings());
+store.dispatch({type: SETTINGS_FETCH_REQUESTED});
 
 // Do the routing and then render
 ReactDOM.render(

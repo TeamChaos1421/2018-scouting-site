@@ -4,9 +4,10 @@ import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 
 // Actions
-import {fetchSettings} from '../actions/settingsActions';
 import {fetchMatchData} from '../actions/regionalActionsTBA';
 import {submitScoutingData} from '../actions/scoutingActions';
+
+import {SETTINGS_FETCH_REQUESTED} from '../actions/allActions';
 
 // Components
 import ScoutingForm from './ScoutingForm';
@@ -22,7 +23,7 @@ function getMatch(matches, matchNumber) {
 class ScoutingPage extends React.Component {
 	componentWillMount() {
 		// Update settings
-		this.props.fetchSettings();
+		this.props.dispatch({type: SETTINGS_FETCH_REQUESTED})
 	}
 
 	componentDidMount() {
@@ -35,9 +36,9 @@ class ScoutingPage extends React.Component {
 	}
 
 	tick() {
-		this.props.fetchSettings();
+		this.props.dispatch({type: SETTINGS_FETCH_REQUESTED})
 
-		// TODO: This currently lags behind by 2 cycles, but how often do regionals change
+		// TODO; Get regional from DB
 		this.props.fetchMatchData(this.props.settings.regional);
 	}
 
@@ -99,9 +100,9 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
 	return {
-		fetchSettings: bindActionCreators(fetchSettings, dispatch),
 		fetchMatchData: bindActionCreators(fetchMatchData, dispatch),
 		submitScoutingData: bindActionCreators(submitScoutingData, dispatch),
+		dispatch: dispatch,
 	};
 }
 

@@ -8,7 +8,7 @@ import {Navbar, Nav, NavItem} from 'react-bootstrap';
 import {LinkContainer, IndexLinkContainer} from 'react-router-bootstrap';
 
 // Actions
-import {fetchSettings} from '../actions/settingsActions';
+import {SETTINGS_FETCH_REQUESTED} from '../actions/allActions';
 
 // Pages
 import TeamList from './TeamList';
@@ -31,7 +31,7 @@ let divStyle = {
 class App extends React.Component {
 	componentWillMount() {
 		// Do stuff that the entire application needs
-		this.props.fetchSettings();
+		this.props.dispatch({type: SETTINGS_FETCH_REQUESTED});
 	}
 
 	render() {
@@ -105,7 +105,7 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
 	return {
-		fetchSettings: bindActionCreators(fetchSettings, dispatch),
+		dispatch: dispatch,
 	}
 }
 

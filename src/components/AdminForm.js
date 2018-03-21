@@ -1,12 +1,12 @@
 // Library imports
 import React from 'react';
 import {connect} from 'react-redux';
-
 import {Field, reduxForm} from 'redux-form';
 import {FormGroup, FormControl, ControlLabel, Button, ToggleButton, ToggleButtonGroup} from 'react-bootstrap';
 
 // Actions
-import {fetchSettings} from '../actions/settingsActions';
+import {SETTINGS_FETCH_REQUESTED} from '../actions/allActions';
+
 
 function ReduxFormControl({input, meta, ...props}) {
 	return <FormControl {...props} {...input} />;
@@ -65,7 +65,7 @@ AdminForm = reduxForm({
 	form: 'adminForm',
 	onChange: (values, dispatch, props, previousValues) => {
 		props.submit();
-		dispatch(fetchSettings());
+		dispatch({type: SETTINGS_FETCH_REQUESTED});
 	}
 })(AdminForm);
 
