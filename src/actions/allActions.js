@@ -3,7 +3,7 @@
 export const DB_FETCH_SETTINGS = 'DB_FETCH_SETTINGS';
 export const DB_RECEIVE_SETTINGS = 'DB_RECEIVE_SETTINGS';
 export const DB_UPDATE_SETTINGS = 'DB_UPDATE_SETTINGS';
-export const DB_UPDATED_SETTINGS = 'DB_UPDATE_SETTINGS';
+export const DB_UPDATED_SETTINGS = 'DB_UPDATED_SETTINGS';
 
 // TBA Actions
 // TODO: Split fetches for matches and lists of matches
