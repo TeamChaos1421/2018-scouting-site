@@ -42,8 +42,9 @@ class ScoutingPage extends React.Component {
 	}
 
 	submit(values, dispatch, regional) {
-		// Toss the regional in for good measure
+		// Add in some metadata
 		values.regional = regional;
+		values.timestamp = Date.now();
 
 		dispatch(submitScoutingData(values));
 	}
