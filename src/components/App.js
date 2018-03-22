@@ -1,9 +1,8 @@
 // Library imports
 import React from 'react';
 import {connect} from 'react-redux';
-import {Route} from 'react-router-dom';
+import {Route, BrowserRouter} from 'react-router-dom';
 import {bindActionCreators} from 'redux';
-import {BrowserRouter} from 'react-router-dom';
 import {Navbar, Nav, NavItem} from 'react-bootstrap';
 import {LinkContainer, IndexLinkContainer} from 'react-router-bootstrap';
 
