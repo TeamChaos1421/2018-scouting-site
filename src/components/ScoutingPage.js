@@ -41,7 +41,10 @@ class ScoutingPage extends React.Component {
 		this.props.fetchMatchData(this.props.settings.regional);
 	}
 
-	submit(values, dispatch) {
+	submit(values, dispatch, regional) {
+		// Toss the regional in for good measure
+		values.regional = regional;
+
 		dispatch(submitScoutingData(values));
 	}
 
@@ -79,7 +82,7 @@ class ScoutingPage extends React.Component {
 						<h1>Match {this.props.settings.matchNumber}</h1>
 						<ScoutingHeader style={{'text-align': 'center'}} users={this.props.settings.users} alliances={match.alliances} />
 					</div>
-					<ScoutingForm onSubmit={this.submit} />
+					<ScoutingForm onSubmit={(values, dispatch) => {this.submit(values, dispatch, this.props.settings.regional)}} />
 				</div>
 			);
 		}
