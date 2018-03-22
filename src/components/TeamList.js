@@ -14,6 +14,9 @@ class TeamList extends React.Component {
 				teamNumber: {
 					'$exists': true,
 				},
+				regional: {
+					'$eq': this.props.settings.regional,
+				},
 			},
 			fields: ['teamNumber'],
 			'limit': 500,
@@ -66,6 +69,7 @@ class TeamList extends React.Component {
 
 function mapStateToProps(state) {
 	return {
+		settings: state.settings,
 		teamData: state.teamData,
 	};
 }

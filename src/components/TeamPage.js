@@ -29,6 +29,9 @@ class TeamPage extends React.Component {
 				matchNumber: {
 					'$exists': true,
 				},
+				regional: {
+					'$eq': this.props.settings.regional,
+				},
 				teamNumber: this.props.match.params[0],
 			},
 			'limit': 1000,
@@ -52,6 +55,7 @@ class TeamPage extends React.Component {
 
 function mapStateToProps(state) {
 	return {
+		settings: state.settings,
 		teamData: state.teamData,
 	};
 }

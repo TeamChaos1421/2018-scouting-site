@@ -18,6 +18,9 @@ class UserPage extends React.Component {
 				matchNumber: {
 					'$exists': true,
 				},
+				regional: {
+					'$eq': this.props.settings.regional,
+				},
 				username: this.props.match.params[0],
 			},
 			'limit': 1000,
@@ -41,6 +44,7 @@ class UserPage extends React.Component {
 
 function mapStateToProps(state) {
 	return {
+		settings: state.settings,
 		userData: state.userData,
 	};
 }

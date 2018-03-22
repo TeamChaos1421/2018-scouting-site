@@ -14,6 +14,9 @@ class UserList extends React.Component {
 				username: {
 					'$exists': true,
 				},
+				regional: {
+					'$eq': this.props.settings.regional,
+				},
 			},
 			fields: ['username'],
 			'limit': 500,
@@ -58,6 +61,7 @@ class UserList extends React.Component {
 
 function mapStateToProps(state) {
 	return {
+		settings: state.settings,
 		userData: state.userData,
 	};
 }

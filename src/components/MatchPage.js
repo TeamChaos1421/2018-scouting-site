@@ -18,6 +18,9 @@ class MatchPage extends React.Component {
 				matchNumber: {
 					'$exists': true,
 				},
+				regional: {
+					'$eq': this.props.settings.regional,
+				},
 				matchNumber: this.props.match.params[0],
 			},
 			'limit': 1000,
@@ -41,6 +44,7 @@ class MatchPage extends React.Component {
 
 function mapStateToProps(state) {
 	return {
+		settings: state.settings,
 		matchData: state.matchData,
 	};
 }

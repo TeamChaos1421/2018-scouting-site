@@ -14,6 +14,9 @@ class MatchList extends React.Component {
 				matchNumber: {
 					'$exists': true,
 				},
+				regional: {
+					'$eq': this.props.settings.regional,
+				},
 			},
 			fields: ['matchNumber'],
 			'limit': 500,
@@ -58,6 +61,7 @@ class MatchList extends React.Component {
 
 function mapStateToProps(state) {
 	return {
+		settings: state.settings,
 		matchData: state.matchData,
 	};
 }
