@@ -47,11 +47,16 @@ class TeamList extends React.Component {
 
 			return (
 				<div className='matchList'>
-					<h3>Alliance Partners</h3>
-					<div><Link to={'/team/' + allianceMember1}>{allianceMember1}</Link></div>
-					<div><Link to={'/team/' + allianceMember2}>{allianceMember2}</Link></div>
-					<br/>
-					<h3>Other teams</h3>
+					{
+						// TODO: Do this automatically?
+						/*
+							<h3>Alliance Partners</h3>
+							<div><Link to={'/team/' + allianceMember1}>{allianceMember1}</Link></div>
+							<div><Link to={'/team/' + allianceMember2}>{allianceMember2}</Link></div>
+							<br/>
+							<h3>Other teams</h3>
+						*/
+					}
 					{
 						teams.map((team, index) => {
 							return (
