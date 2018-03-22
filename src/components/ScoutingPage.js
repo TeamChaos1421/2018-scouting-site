@@ -23,9 +23,6 @@ class ScoutingPage extends React.Component {
 	componentWillMount() {
 		// Update settings
 		this.props.fetchSettings();
-
-		// TODO; Get regional from DB
-		this.props.fetchMatchData('2018flor');
 	}
 
 	componentDidMount() {
@@ -34,11 +31,14 @@ class ScoutingPage extends React.Component {
 	}
 
 	componentWillUnmount() {
-		//this.clearInterval(this.state.timer);
+		clearInterval(this.state.timer);
 	}
 
 	tick() {
 		this.props.fetchSettings();
+
+		// TODO: This currently lags behind by 2 cycles, but how often do regionals change
+		this.props.fetchMatchData(this.props.settings.regional);
 	}
 
 	submit(values, dispatch) {
