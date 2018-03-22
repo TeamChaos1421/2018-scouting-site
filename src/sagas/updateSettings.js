@@ -2,8 +2,6 @@ import {call, put, takeEvery, takeLatest, all, fork} from 'redux-saga/effects';
 import {SETTINGS_PUT_REQUESTED, SETTINGS_PUT_SUCCEEDED, SETTINGS_PUT_FAILED, DB_AUTH_TOKEN} from '../actions/allActions.js';
 
 function* updateSettings(action) {
-	console.log(action);
-
 	try {
 		const data = yield call(() => {
 			return fetch('http://chaos.mlaga97.space:5984/chaos2018_scouting_config/config', {

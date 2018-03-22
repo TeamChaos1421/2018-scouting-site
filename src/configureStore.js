@@ -3,12 +3,11 @@ import {createStore, applyMiddleware} from 'redux';
 import thunk from 'redux-thunk';
 import createSagaMiddleware from 'redux-saga';
 
-// Reducers
-import rootReducer from './reducers/allReducers';
-
 // Sagas
-import fetchSettings from './sagas/fetchSettings';
-import updateSettings from './sagas/updateSettings';
+import rootSaga from './sagas/rootSaga';
+
+// Reducers
+import rootReducer from './reducers/rootReducer';
 
 // Configure the store to use thunk, saga, and devtool extensions
 export default function configureStore() {
@@ -20,8 +19,7 @@ export default function configureStore() {
 		applyMiddleware(sagaMiddleware, thunk),
 	);
 
-	sagaMiddleware.run(fetchSettings);
-	sagaMiddleware.run(updateSettings);
+	sagaMiddleware.run(rootSaga);
 
 	return store;
 }
