@@ -3,7 +3,7 @@ import React from 'react';
 import {connect} from 'react-redux';
 
 // Actions
-import {updateSettings} from '../actions/settingsActions';
+import {SETTINGS_PUT_REQUESTED} from '../actions/allActions';
 
 // Components
 import AdminForm from './AdminForm';
@@ -42,7 +42,11 @@ class AdminPage extends React.Component {
 			newSettings.matchNumber = matchNumber;
 		}
 
-		dispatch(updateSettings(newSettings));
+		// Send the new settings
+		dispatch({
+			type: SETTINGS_PUT_REQUESTED,
+			data: newSettings,
+		});
 	}
 
 	render() {

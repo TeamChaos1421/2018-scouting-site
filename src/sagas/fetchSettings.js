@@ -28,9 +28,5 @@ function* fetchSettingsSaga() {
 	yield takeLatest(SETTINGS_FETCH_REQUESTED, fetchSettings);
 }
 
-/**************************************************************
-Update all the commented out references to fetchSettings
-**************************************************************/
-
 export default fetchSettingsSaga;
 

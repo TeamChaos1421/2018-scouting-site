@@ -7,7 +7,8 @@ import createSagaMiddleware from 'redux-saga';
 import rootReducer from './reducers/allReducers';
 
 // Sagas
-import mySaga from './sagas/fetchSettings';
+import fetchSettings from './sagas/fetchSettings';
+import updateSettings from './sagas/updateSettings';
 
 // Configure the store to use thunk, saga, and devtool extensions
 export default function configureStore() {
@@ -19,7 +20,8 @@ export default function configureStore() {
 		applyMiddleware(sagaMiddleware, thunk),
 	);
 
-	sagaMiddleware.run(mySaga);
+	sagaMiddleware.run(fetchSettings);
+	sagaMiddleware.run(updateSettings);
 
 	return store;
 }
