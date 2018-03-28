@@ -5,7 +5,7 @@ import {Table} from 'react-bootstrap';
 import {bindActionCreators} from 'redux';
 
 // Actions
-import {fetchMatchData} from '../actions/matchActions';
+import {MATCH_DATA_FETCH_REQUESTED} from '../actions/allActions';
 
 // Components
 import MatchOverview from './MatchOverview';
@@ -13,17 +13,10 @@ import MatchDetail from './MatchDetail';
 
 class MatchPage extends React.Component {
 	componentWillMount() {
-		this.props.fetchMatchData({
-			selector: {
-				matchNumber: {
-					'$exists': true,
-				},
-				regional: {
-					'$eq': this.props.settings.regional,
-				},
-				matchNumber: this.props.match.params[0],
-			},
-			'limit': 1000,
+		this.props.dispatch({
+			type: MATCH_DATA_FETCH_REQUESTED,
+			regional: this.props.settings.regional,
+			matchNumber: this.props.match.params[0],
 		});
 	}
 
@@ -51,7 +44,7 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
 	return {
-		fetchMatchData: bindActionCreators(fetchMatchData, dispatch)
+		dispatch: dispatch,
 	};
 }
 

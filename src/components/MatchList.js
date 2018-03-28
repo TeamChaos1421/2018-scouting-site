@@ -5,21 +5,13 @@ import {bindActionCreators} from 'redux';
 import {Link} from 'react-router-dom';
 
 // Actions
-import {fetchMatchList} from '../actions/matchActions';
+import {MATCH_LIST_FETCH_REQUESTED} from '../actions/allActions';
 
 class MatchList extends React.Component {
 	componentWillMount() {
-		this.props.fetchMatchList({
-			selector: {
-				matchNumber: {
-					'$exists': true,
-				},
-				regional: {
-					'$eq': this.props.settings.regional,
-				},
-			},
-			fields: ['matchNumber'],
-			'limit': 500,
+		this.props.dispatch({
+			type: MATCH_LIST_FETCH_REQUESTED,
+			regional: this.props.settings.regional,
 		});
 	}
 
@@ -68,7 +60,7 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
 	return {
-		fetchMatchList: bindActionCreators(fetchMatchList, dispatch)
+		dispatch: dispatch,
 	};
 }
 
